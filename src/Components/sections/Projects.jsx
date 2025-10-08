@@ -15,15 +15,15 @@ const projects = [
     description:
       "A modern food delivery website built with React and TailwindCSS.",
     image: food,
-    github: "https://github.com/yourusername/tastenest",
-    live: "https://tastenest.vercel.app",
+    github: "https://github.com/Dev-Tee06/taste-nest",
+    live: "https://taste-nest-tau.vercel.app/",
   },
   {
     id: 2,
     title: "TEE-Digital Agency",
     description: "Landing page for a creative agency with animations.",
     image: agency,
-    github: "https://github.com/yourusername/tee-agency",
+    github: "https://github.com/Dev-Tee06/digital-agency",
     live: "https://tee-agency.vercel.app",
   },
   {
@@ -32,8 +32,8 @@ const projects = [
     description:
       "Fully responsive e-commerce frontend with cart & checkout flow.",
     image: store,
-    github: "https://github.com/yourusername/tess-store",
-    live: "https://tess-store.vercel.app",
+    github: "https://github.com/Dev-Tee06/my-shop",
+    live: "https://tess-shop.vercel.app",
   },
 ];
 
