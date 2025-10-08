@@ -71,9 +71,10 @@ export const About = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
+          whileTap={{ scale: 0.97, borderColor: "#06b6d4" }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="rounded-xl p-8 border border hover:border-cyan-500 transition-colors duration-300 border-white/10 hover:-translate-y-1 transition-all"
+          className="rounded-xl p-8 border border-white/10 hover:border-cyan-500 active:border-cyan-500 focus:border-cyan-500 transition-all duration-300 hover:-translate-y-1 focus:-translate-y-1 active:-translate-y-1"
         >
           <p className="text-gray-300 mb-6">
             I'm a Frontend Developer passionate about crafting sleek, responsive
@@ -87,14 +88,20 @@ export const About = () => {
               <motion.span
                 key={i}
                 whileHover={{ scale: 1.1 }}
-                className="bg-blue-500/10 text-blue-500 border hover:border-cyan-500 transition-colors duration-300 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition"
+                whileTap={{
+                  scale: 0.95,
+                  backgroundColor: "rgba(59,130,246,0.2)",
+                }}
+                className="bg-blue-500/10 text-blue-500 border border-white/10 hover:border-cyan-500 active:border-cyan-500 focus:border-cyan-500 transition-colors duration-300 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 active:bg-blue-500/20 focus:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] cursor-pointer"
               >
                 {tech}
               </motion.span>
             ))}
           </div>
+
+          {/* Non-technical skills */}
           <div className="mt-5">
-            <h2 className="font-bold text-xl ">My Non-Technical Skills.</h2>
+            <h2 className="font-bold text-xl">My Non-Technical Skills</h2>
             <ul className="list-disc list-inside text-gray-400 space-y-2 mt-5">
               <li>Effective Communication skills.</li>
               <li>Good Collaboration and Team work.</li>
@@ -106,14 +113,15 @@ export const About = () => {
         </motion.div>
 
         {/* Education + Work */}
-        <div className="grid grid-cols-1 md:grid-cols-1  gap-6 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-6 mt-10">
           {/* Education */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
+            whileTap={{ scale: 0.97, borderColor: "#06b6d4" }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="p-6 rounded-xl border hover:border-cyan-500 transition-colors duration-600 border-white/10  hover:-translate-y-1   flex flex-col"
+            className="p-6 rounded-xl border border-white/10 hover:border-cyan-500 active:border-cyan-500 focus:border-cyan-500 transition-all duration-300 hover:-translate-y-1 focus:-translate-y-1 active:-translate-y-1 flex flex-col"
           >
             <h3 className="text-xl font-bold mb-4">Education</h3>
             <ul className="list-disc list-inside text-gray-400 space-y-2">
@@ -136,9 +144,10 @@ export const About = () => {
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
+            whileTap={{ scale: 0.97, borderColor: "#06b6d4" }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="p-6 rounded-xl border hover:border-cyan-500 transition-colors duration-300 border-white/10 relative"
+            className="p-6 rounded-xl border border-white/10 hover:border-cyan-500 active:border-cyan-500 focus:border-cyan-500 transition-all duration-300 relative"
             ref={timelineRef}
           >
             <h3 className="text-xl font-bold mb-6">Work Experience</h3>
@@ -157,6 +166,7 @@ export const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: i * 0.15 }}
                   viewport={{ once: true }}
+                  whileTap={{ scale: 0.97 }}
                   className="relative"
                 >
                   {/* Circle marker */}

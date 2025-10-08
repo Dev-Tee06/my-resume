@@ -1,5 +1,6 @@
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 import food from "../../assets/food.png";
 import store from "../../assets/store.png";
@@ -14,12 +15,16 @@ const projects = [
     description:
       "A modern food delivery website built with React and TailwindCSS.",
     image: food,
+    github: "https://github.com/yourusername/tastenest",
+    live: "https://tastenest.vercel.app",
   },
   {
     id: 2,
     title: "TEE-Digital Agency",
     description: "Landing page for a creative agency with animations.",
     image: agency,
+    github: "https://github.com/yourusername/tee-agency",
+    live: "https://tee-agency.vercel.app",
   },
   {
     id: 3,
@@ -27,10 +32,18 @@ const projects = [
     description:
       "Fully responsive e-commerce frontend with cart & checkout flow.",
     image: store,
+    github: "https://github.com/yourusername/tess-store",
+    live: "https://tess-store.vercel.app",
   },
 ];
 
 export default function Projects() {
+  const [activeProject, setActiveProject] = useState(null);
+
+  const toggleOverlay = (id) => {
+    setActiveProject(activeProject === id ? null : id);
+  };
+
   return (
     <section id="projects" className="py-16">
       <div className="max-w-6xl mx-auto px-6">
@@ -52,21 +65,33 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-blue-500/10 border border-white/10 border-5 hover:border-cyan-500 transition-colors duration-300 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition transform hover:-translate-y-2"
+              whileTap={{ scale: 0.97 }}
+              className="bg-white dark:bg-blue-500/10 border border-white/10 hover:border-cyan-500 active:border-cyan-500 focus:border-cyan-500 transition-all duration-300 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transform hover:-translate-y-2 cursor-pointer"
             >
-              {/* Image with hover overlay */}
-              <div className="relative group">
+              {/* Image with hover/tap overlay */}
+              <div
+                className="relative group"
+                onClick={() => toggleOverlay(project.id)}
+              >
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-48 object-cover"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition">
+
+                {/* Overlay (shows on hover OR tap) */}
+                <div
+                  className={`absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center gap-4 transition-opacity duration-300 ${
+                    activeProject === project.id
+                      ? "opacity-100"
+                      : "opacity-0 group-hover:opacity-100"
+                  }`}
+                >
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center bg-white text-gray-800 px-3 py-1 rounded hover:bg-gray-200 text-sm font-medium"
+                    className="flex items-center bg-white text-gray-800 px-3 py-1 rounded hover:bg-gray-200 active:bg-gray-300 focus:bg-gray-300 text-sm font-medium transition-colors duration-200"
                   >
                     <FaGithub className="mr-1" /> Code
                   </a>
@@ -74,7 +99,7 @@ export default function Projects() {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 text-sm font-medium"
+                    className="flex items-center bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 active:bg-blue-700 focus:bg-blue-700 text-sm font-medium transition-colors duration-200"
                   >
                     <FaExternalLinkAlt className="mr-1" /> Live
                   </a>
@@ -89,14 +114,20 @@ export default function Projects() {
                 <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2">
+
+                <div className="flex flex-wrap gap-2 mt-3">
                   {tech.map((tech, i) => (
-                    <div
+                    <motion.div
                       key={i}
-                      className="bg-blue-500/10 text-blue-500 border-2 border hover:border-cyan-500 transition-colors duration-300 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{
+                        scale: 0.95,
+                        backgroundColor: "rgba(59,130,246,0.2)",
+                      }}
+                      className="bg-blue-500/10 text-blue-500 border border-white/10 hover:border-cyan-500 active:border-cyan-500 focus:border-cyan-500 transition-colors duration-300 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 active:bg-blue-500/20 focus:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] cursor-pointer"
                     >
                       {tech}
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
