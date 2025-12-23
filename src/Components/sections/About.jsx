@@ -40,6 +40,12 @@ export const About = () => {
       details:
         "- Created an e-commerce platform with interactive product displays and smooth shopping experience",
     },
+    {
+      role: "Frontend Developer at Xpress",
+      year: "2025-Present",
+      details:
+        "Created a fast and reliable delivery platform with real-time order tracking, rider management, and seamless booking experience.",
+    },
   ];
 
   const timelineRef = useRef(null);

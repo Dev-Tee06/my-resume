@@ -5,6 +5,7 @@ import { useState } from "react";
 import food from "../../assets/food.png";
 import store from "../../assets/store.png";
 import agency from "../../assets/agency.png";
+import xpress from "../../assets/xpress.png";
 
 const tech = ["React", "TailwindCss", "Framer Motion"];
 
@@ -35,6 +36,15 @@ const projects = [
     github: "https://github.com/Dev-Tee06/my-shop",
     live: "https://tess-shop.vercel.app",
   },
+  {
+    id: 4,
+    title: "Xpress",
+    description:
+      "Xpress is a fast, reliable campus-focused delivery platform connecting small businesses, customers, and trusted bike riders",
+    image: xpress,
+    github: "",
+    live: "",
+  },
 ];
 
 export default function Projects() {
@@ -57,7 +67,7 @@ export default function Projects() {
           My Projects
         </motion.h2>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-10">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2 mt-10">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}

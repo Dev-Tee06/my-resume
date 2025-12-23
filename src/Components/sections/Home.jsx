@@ -1,5 +1,5 @@
 import tee from "../../assets/tee.jpg";
-import testimony from "../../assets/testimony.jpg";
+import tess from "../../assets/tess.jpg";
 
 export const Home = () => {
   return (
@@ -14,11 +14,24 @@ export const Home = () => {
         <h1 className="text-3xl  md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent leading-tight">
           Hi, I'm Testimony{" "}
         </h1>
-        {/* <img
-          src={testimony}
-          alt=""
-          className="mx-auto w-[300px] h-[300px] rounded-full"
-        /> */}
+        <div className="relative mx-auto w-[300px] h-[300px] rounded-full group">
+          {/* Border */}
+          <div
+            className="absolute inset-0 rounded-full border-4 border-blue-500/70
+               group-hover:shadow-[0_0_25px_rgba(59,130,246,0.6)]
+               transition-all duration-300 pointer-events-none"
+          />
+
+          {/* Inner wrapper */}
+          <div className="w-full h-full rounded-full overflow-hidden pt-2">
+            <img
+              src={tess}
+              alt="Testimony"
+              className="w-full h-full object-cover block"
+              draggable="false"
+            />
+          </div>
+        </div>
 
         <p className="text-gray-400 text-lg mb-8 max-w-lg mx-auto">
           I'm a Creative Frontend Developer passionate about turning ideas into
