@@ -43,7 +43,7 @@ const projects = [
       "Xpress is a fast, reliable campus-focused delivery platform connecting small businesses, customers, and trusted bike riders",
     image: xpress,
     github: "https://github.com/Dev-Tee06/Xpress",
-    live: "xpress-five.vercel.app",
+    live: "https://xpress-five.vercel.app",
   },
 ];
 
