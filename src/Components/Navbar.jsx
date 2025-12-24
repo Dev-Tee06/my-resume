@@ -6,82 +6,86 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
 
+  const navItemClass =
+    "relative text-gray-300 font-medium text-base cursor-pointer transition-colors duration-300 hover:text-cyan-400 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full";
+
   return (
-    <nav className="fixed top-0 w-full z-40 bg-[rgba(10,10,10,0.8)] backdrop-blur-lg border-b border-white/10 shadow-lg">
-      <div className="max-w-10xl mx-auto px-4">
+    <nav className="fixed top-0 w-full z-40 bg-[rgba(10,10,10,0.8)] backdrop-blur-lg border-b border-white/10">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
+          {/* Logo */}
           <ScrollLink
             to="home"
-            smooth={true}
+            smooth
             duration={500}
             offset={-70}
-            className="font-mono text-xl font-bold text-white cursor-pointer"
+            className="cursor-pointer text-lg font-semibold tracking-wide text-white"
           >
-            <span className="text-blue-500 font-bold text-2xl">DEV-TEE</span>
+            <span className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-xl font-bold">
+              DEV-TEE
+            </span>
           </ScrollLink>
 
           {/* Mobile Menu Toggle */}
-          <div
-            className="w-7 h-7 flex items-center justify-center relative cursor-pointer z-50 md:hidden"
+          <button
+            className="md:hidden text-3xl text-white z-50"
             onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label="Toggle Menu"
           >
-            {menuOpen ? (
-              <span className="text-3xl text-white">&times;</span>
-            ) : (
-              <span className="text-3xl text-white">&#9776;</span>
-            )}
-          </div>
+            {menuOpen ? "✕" : "☰"}
+          </button>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-10">
             <ScrollLink
               to="home"
-              smooth={true}
+              smooth
               duration={500}
               offset={-70}
-              className="text-white font-semibold text-lg hover:text-cyan-500 cursor-pointer py-2 hover:border-b-5 hover:border-cyan-500 transition-all duration-300"
+              className={navItemClass}
             >
               Home
             </ScrollLink>
 
             <ScrollLink
               to="about"
-              smooth={true}
+              smooth
               duration={500}
               offset={-70}
-              className="text-white font-semibold text-lg hover:text-cyan-500 cursor-pointer py-2 hover:border-b-5 hover:border-cyan-500 transition-all duration-300"
+              className={navItemClass}
             >
               About
             </ScrollLink>
 
             <ScrollLink
               to="skill"
-              smooth={true}
+              smooth
               duration={500}
               offset={-70}
-              className="text-white font-semibold text-lg hover:text-cyan-500 cursor-pointer py-2 hover:border-b-5 hover:border-cyan-500 transition-all duration-300"
+              className={navItemClass}
             >
               Skills
             </ScrollLink>
 
             <ScrollLink
               to="projects"
-              smooth={true}
+              smooth
               duration={500}
               offset={-70}
-              className="text-white font-semibold text-lg hover:text-cyan-500 cursor-pointer py-2 hover:border-b-5 hover:border-cyan-500 transition-all duration-300"
+              className={navItemClass}
             >
               Projects
             </ScrollLink>
 
+            {/* CTA */}
             <ScrollLink
               to="contact"
-              smooth={true}
+              smooth
               duration={500}
               offset={-70}
-              className="text-white bg-gradient-to-r from-blue-500 to-cyan-400 rounded-[50px] cursor-pointer py-2 px-4 duration-300"
+              className="ml-2 px-5 py-2 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-cyan-400 hover:opacity-90 transition"
             >
-              Get In Touch
+              Get in Touch
             </ScrollLink>
           </div>
         </div>

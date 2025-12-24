@@ -9,84 +9,87 @@ import tailwindcss from "../../assets/tailwindcss.png";
 import Rest from "../../assets/Rest.png";
 
 const skills = [
-  {
-    id: 1,
-    image: html,
-    title: "Html5",
-  },
-  {
-    id: 2,
-    image: css,
-    title: "Css",
-  },
-  {
-    id: 3,
-    image: Js,
-    title: "Javascript",
-  },
-  {
-    id: 4,
-    image: react,
-    title: "React",
-  },
-  {
-    id: 5,
-    image: tailwindcss,
-    title: "Tailwindcss",
-  },
-  {
-    id: 6,
-    image: framer,
-    title: "Framer",
-  },
-  {
-    id: 7,
-    image: git,
-    title: "Git",
-  },
-  {
-    id: 8,
-    image: Rest,
-    title: "Rest Api",
-  },
+  { id: 1, image: html, title: "HTML5" },
+  { id: 2, image: css, title: "CSS3" },
+  { id: 3, image: Js, title: "JavaScript" },
+  { id: 4, image: react, title: "React" },
+  { id: 5, image: tailwindcss, title: "Tailwind CSS" },
+  { id: 6, image: framer, title: "Framer Motion" },
+  { id: 7, image: git, title: "Git & GitHub" },
+  { id: 8, image: Rest, title: "REST APIs" },
 ];
 
 function Skills() {
   return (
-    <div id="skill" className="py-12">
-      <h2 className="font-bold text-3xl mt-10 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center">
-        My Skills
-      </h2>
+    <section id="skill" className="relative py-24 overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute top-0 right-0 w-72 h-72 bg-blue-500/20 blur-[120px] rounded-full" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-cyan-400/20 blur-[120px] rounded-full" />
 
-      <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 px-6">
-        {skills.map((skill) => (
-          <motion.div
-            key={skill.id}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex flex-col items-center justify-center cursor-pointer"
-          >
-            <motion.img
-              src={skill.image}
-              alt={skill.title}
-              whileTap={{ scale: 0.9, borderColor: "#06b6d4" }}
-              className="w-[150px] h-[150px] rounded-full border-4 border-white/10 hover:border-cyan-500 active:border-cyan-500 focus:border-cyan-500 transition-all duration-300"
-            />
+      <div className="relative max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <span className="inline-block mb-3 px-4 py-1 text-sm font-semibold text-cyan-400 bg-cyan-400/10 rounded-full">
+            Expertise
+          </span>
+          <h2 className="text-3xl md:text-5xl font-extrabold">
+            Tools & Technologies I{" "}
+            <span className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
+              Work With
+            </span>
+          </h2>
+          <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
+            A modern frontend stack focused on performance, scalability, and
+            delightful user experiences.
+          </p>
+        </motion.div>
 
-            <motion.p
-              whileHover={{ scale: 1.05 }}
-              whileTap={{
-                scale: 0.95,
-                backgroundColor: "rgba(59,130,246,0.2)",
-              }}
-              className="mt-5 text-2xl text-center bg-blue-500/10 text-blue-500 border border-white/10 hover:border-cyan-500 active:border-cyan-500 focus:border-cyan-500 transition-colors duration-300 py-1 px-3 rounded-full hover:bg-blue-500/20 active:bg-blue-500/20 focus:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] cursor-pointer"
+        {/* Skills Grid */}
+        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {skills.map((skill, index) => (
+            <motion.div
+              key={skill.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -8 }}
+              className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400"
             >
-              {skill.title}
-            </motion.p>
-          </motion.div>
-        ))}
+              {/* Glow on hover */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/10 to-cyan-400/10 opacity-0 group-hover:opacity-100 transition duration-300" />
+
+              {/* Icon */}
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="relative z-10 w-20 h-20 rounded-xl bg-black/30 flex items-center justify-center mb-6"
+              >
+                <img
+                  src={skill.image}
+                  alt={skill.title}
+                  className="w-12 h-12 object-contain"
+                />
+              </motion.div>
+
+              {/* Title */}
+              <h3 className="relative z-10 text-lg font-semibold text-gray-200">
+                {skill.title}
+              </h3>
+
+              <p className="relative z-10 mt-2 text-sm text-gray-400">
+                Professional Experience
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 
