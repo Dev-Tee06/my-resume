@@ -37,7 +37,7 @@ export const About = () => {
     },
     {
       role: "Frontend Developer — TESS Stores",
-      year: "2025–Present",
+      year: "2025",
       details: "Built an interactive e-commerce platform with smooth UX flows.",
     },
     {
@@ -45,6 +45,12 @@ export const About = () => {
       year: "2025–Present",
       details:
         "Created a delivery platform with real-time tracking and rider management.",
+    },
+    {
+      role: "Frontend Developer - Farm-IQ",
+      year: "2025",
+      details:
+        "Built and optimized responsive, user-friendly interfaces for Farm-IQ, translating product requirements into clean, high-performance frontend solutions.",
     },
   ];
 

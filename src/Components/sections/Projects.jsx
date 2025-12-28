@@ -5,6 +5,7 @@ import food from "../../assets/food.png";
 import store from "../../assets/store.png";
 import agency from "../../assets/agency.png";
 import xpress from "../../assets/xpress.png";
+import farm from "../../assets/farm.png";
 
 const tech = ["React", "Tailwind CSS", "Framer Motion"];
 
@@ -29,7 +30,7 @@ const projects = [
   },
   {
     id: 3,
-    title: "TESS Store",
+    title: "TESS STORE",
     description:
       "A fully responsive e-commerce frontend with cart and checkout flow.",
     image: store,
@@ -44,6 +45,15 @@ const projects = [
     image: xpress,
     github: "https://github.com/Dev-Tee06/Xpress",
     live: "https://xpress-five.vercel.app",
+  },
+  {
+    id: 5,
+    title: "Farm-IQ",
+    description:
+      "Farm-IQ is a smart agriculture platform that uses data and technology to help farmers make better decisions, boost productivity, and farm sustainably.",
+    image: farm,
+    github: "https://github.com/Dev-Tee06/Farm-IQ",
+    live: "https://farm-iq-nine.vercel.app/",
   },
 ];
 
