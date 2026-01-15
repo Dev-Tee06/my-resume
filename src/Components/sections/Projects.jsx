@@ -6,6 +6,7 @@ import store from "../../assets/store.png";
 import agency from "../../assets/agency.png";
 import xpress from "../../assets/xpress.png";
 import farm from "../../assets/farm.png";
+import mindshift from "../../assets/mindshift.png";
 
 const tech = ["React", "Tailwind CSS", "Framer Motion"];
 
@@ -54,6 +55,15 @@ const projects = [
     image: farm,
     github: "https://github.com/Dev-Tee06/Farm-IQ",
     live: "https://farm-iq-nine.vercel.app/",
+  },
+  {
+    id: 6,
+    title: "Mindshift",
+    description:
+      "MindShift is a growth-focused platform designed to transform thinking, purpose, and lifestyle through practical wisdom.It empowers individuals to live consciously, intentionally, and with clarity in every area of life.",
+    image: mindshift,
+    github: "https://github.com/Dev-Tee06/mindshift",
+    live: "https://mindshift1-xi.vercel.app/",
   },
 ];
 
