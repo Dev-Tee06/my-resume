@@ -7,6 +7,7 @@ import agency from "../../assets/agency.png";
 import xpress from "../../assets/xpress.png";
 import farm from "../../assets/farm.png";
 import mindshift from "../../assets/mindshift.png";
+import teenspray from "../../assets/teenspray.png";
 
 const tech = ["React", "Tailwind CSS", "Framer Motion"];
 
@@ -64,6 +65,15 @@ const projects = [
     image: mindshift,
     github: "https://github.com/Dev-Tee06/mindshift",
     live: "https://mindshift1-xi.vercel.app/",
+  },
+  {
+    id: 7,
+    title: "Teens-Pray",
+    description:
+      "Teens-Pray is a dedicated platform empowering teenagers to cultivate spiritual growth through structured prayer, reflective devotionals, and faith-based guidance. It fosters a supportive community that encourages moral development, mindfulness, and a deeper connection with God.",
+    image: teenspray,
+    github: "https://github.com/Dev-Tee06/teens-pray",
+    live: "https://teens-pray.vercel.app/",
   },
 ];
 
