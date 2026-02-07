@@ -1,6 +1,7 @@
 import emailjs from "emailjs-com";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { FaEnvelope, FaPhoneAlt, FaLinkedin, FaGithub } from "react-icons/fa";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -30,22 +31,30 @@ export const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative min-h-screen flex items-center justify-center py-24"
+      className="relative min-h-screen flex items-center justify-center py-24 bg-black text-gray-100 overflow-hidden"
     >
-      {/* Background glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/20 blur-[120px] rounded-full" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-cyan-400/20 blur-[120px] rounded-full" />
+      {/* Background Blobs */}
+      <motion.div
+        animate={{ y: [0, 20, 0], x: [0, 10, -10, 0] }}
+        transition={{ repeat: Infinity, duration: 15, ease: "easeInOut" }}
+        className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-tr from-blue-500 to-cyan-400/40 blur-[140px] rounded-full"
+      />
+      <motion.div
+        animate={{ y: [0, -20, 0], x: [0, -10, 10, 0] }}
+        transition={{ repeat: Infinity, duration: 18, ease: "easeInOut" }}
+        className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-bl from-purple-500 to-pink-400/30 blur-[140px] rounded-full"
+      />
 
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
+        transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="relative w-full max-w-xl mx-auto px-6"
+        className="relative w-full max-w-xl mx-auto px-6 z-10"
       >
         {/* Header */}
-        <div className="text-center mb-10">
-          <span className="inline-block mb-3 px-4 py-1 text-sm font-semibold text-cyan-400 bg-cyan-400/10 rounded-full">
+        <div className="text-center mb-12">
+          <span className="inline-block mb-3 px-4 py-1 text-sm font-semibold text-cyan-400 bg-gradient-to-r from-blue-500 to-cyan-400/10 rounded-full">
             Contact
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold">
@@ -61,12 +70,12 @@ export const Contact = () => {
         </div>
 
         {/* Form Card */}
-        <form
+        <motion.form
           onSubmit={handleSubmit}
-          className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 space-y-6 shadow-lg"
+          className="bg-gradient-to-tr from-blue-900/30 to-cyan-900/20 backdrop-blur-xl border border-white/10 rounded-3xl p-8 space-y-6 shadow-lg hover:shadow-cyan-400/20 transition"
         >
           {/* Name */}
-          <div>
+          <div className="relative">
             <label className="block text-sm text-gray-400 mb-2">
               Your Name
             </label>
@@ -79,12 +88,12 @@ export const Contact = () => {
               onChange={(e) =>
                 setFormData({ ...formData, name: e.target.value })
               }
-              className="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 focus:bg-white/5 transition"
+              className="w-full bg-transparent border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition"
             />
           </div>
 
           {/* Email */}
-          <div>
+          <div className="relative">
             <label className="block text-sm text-gray-400 mb-2">
               Email Address
             </label>
@@ -97,12 +106,12 @@ export const Contact = () => {
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
               }
-              className="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 focus:bg-white/5 transition"
+              className="w-full bg-transparent border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition"
             />
           </div>
 
           {/* Message */}
-          <div>
+          <div className="relative">
             <label className="block text-sm text-gray-400 mb-2">Message</label>
             <textarea
               name="message"
@@ -113,7 +122,7 @@ export const Contact = () => {
               onChange={(e) =>
                 setFormData({ ...formData, message: e.target.value })
               }
-              className="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 focus:bg-white/5 transition resize-none"
+              className="w-full bg-transparent border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition resize-none"
             />
           </div>
 
@@ -130,14 +139,52 @@ export const Contact = () => {
           )}
 
           {/* Button */}
-          <button
+          <motion.button
             type="submit"
             disabled={status === "loading"}
-            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-400 text-white py-3 rounded-full font-semibold transition hover:opacity-90 hover:-translate-y-0.5 disabled:opacity-60"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-400 text-white py-3 rounded-full font-semibold transition hover:opacity-90 disabled:opacity-60"
           >
             {status === "loading" ? "Sending..." : "Send Message"}
-          </button>
-        </form>
+          </motion.button>
+
+          {/* Quick Contact */}
+          <div className="mt-6 flex justify-center gap-6">
+            <motion.a
+              href="mailto:youremail@example.com"
+              whileHover={{ y: -3 }}
+              className="flex items-center gap-2 text-sm text-white bg-white/5 px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition"
+            >
+              <FaEnvelope /> Email
+            </motion.a>
+            <motion.a
+              href="tel:+1234567890"
+              whileHover={{ y: -3 }}
+              className="flex items-center gap-2 text-sm text-white bg-white/5 px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition"
+            >
+              <FaPhoneAlt /> Call
+            </motion.a>
+            <motion.a
+              href="https://linkedin.com/in/yourprofile"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -3 }}
+              className="flex items-center gap-2 text-sm text-white bg-white/5 px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition"
+            >
+              <FaLinkedin /> LinkedIn
+            </motion.a>
+            <motion.a
+              href="https://github.com/yourprofile"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -3 }}
+              className="flex items-center gap-2 text-sm text-white bg-white/5 px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition"
+            >
+              <FaGithub /> GitHub
+            </motion.a>
+          </div>
+        </motion.form>
       </motion.div>
     </section>
   );

@@ -1,15 +1,18 @@
+// About.jsx
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 export const About = () => {
   const frontendSkills = [
-    "React",
-    "Tailwind CSS",
-    "JavaScript",
-    "CSS",
-    "REST APIs",
-    "Framer Motion",
-    "Git & GitHub",
+    { name: "React", level: 90 },
+    { name: "Tailwind CSS", level: 85 },
+    { name: "JavaScript", level: 95 },
+    { name: "CSS", level: 90 },
+    { name: "REST APIs", level: 80 },
+    { name: "Framer Motion", level: 70 },
+    { name: "Git & GitHub", level: 85 },
   ];
 
   const experiences = [
@@ -59,14 +62,24 @@ export const About = () => {
     target: timelineRef,
     offset: ["start end", "end start"],
   });
-
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="about" className="relative py-24 overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute -top-32 right-0 w-[350px] h-[350px] bg-blue-500/20 blur-[120px] rounded-full" />
-      <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-cyan-400/20 blur-[120px] rounded-full" />
+    <section
+      id="about"
+      className="relative py-24 overflow-hidden bg-black text-gray-100"
+    >
+      {/* Background gradient glows */}
+      <motion.div
+        animate={{ y: [0, 20, 0], x: [0, 10, -10, 0], rotate: [0, 360, 0] }}
+        transition={{ repeat: Infinity, duration: 20, ease: "easeInOut" }}
+        className="absolute -top-32 right-0 w-[350px] h-[350px] bg-gradient-to-tr from-blue-500 to-cyan-400/20 blur-[120px] rounded-full"
+      />
+      <motion.div
+        animate={{ y: [0, -20, 0], x: [0, -10, 10, 0], rotate: [0, -360, 0] }}
+        transition={{ repeat: Infinity, duration: 22, ease: "easeInOut" }}
+        className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-gradient-to-tr from-cyan-400 to-blue-500/20 blur-[120px] rounded-full"
+      />
 
       <div className="relative max-w-5xl mx-auto px-6">
         {/* Header */}
@@ -86,6 +99,16 @@ export const About = () => {
               Frontend Experiences
             </span>
           </h2>
+          <p className="mt-3 text-gray-400">
+            Check out my{" "}
+            <Link
+              to="/projects"
+              className="text-cyan-400 underline hover:text-blue-500 transition"
+            >
+              projects
+            </Link>{" "}
+            and see what I’ve built!
+          </p>
         </motion.div>
 
         {/* About Card */}
@@ -99,25 +122,33 @@ export const About = () => {
           <p className="text-gray-300 leading-relaxed mb-8 text-lg">
             I’m a frontend developer passionate about building elegant,
             responsive, and performance-driven interfaces that turn ideas into
-            impactful digital products.
+            impactful digital products. I enjoy collaborating in teams, solving
+            complex problems, and continuously learning new technologies.
           </p>
 
-          {/* Skills */}
+          {/* Technical Stack */}
           <h3 className="text-xl font-semibold mb-4">Technical Stack</h3>
-          <div className="flex flex-wrap gap-3">
+          <div className="space-y-3 mb-10">
             {frontendSkills.map((skill, i) => (
-              <motion.span
-                key={i}
-                whileHover={{ scale: 1.08 }}
-                className="px-4 py-1.5 rounded-full text-sm font-medium bg-blue-500/10 text-blue-400 border border-white/10 hover:border-cyan-400 transition"
-              >
-                {skill}
-              </motion.span>
+              <div key={i}>
+                <div className="flex justify-between mb-1 text-gray-300">
+                  <span>{skill.name}</span>
+                  <span>{skill.level}%</span>
+                </div>
+                <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${skill.level}%` }}
+                    transition={{ duration: 1 }}
+                    className="h-2 bg-gradient-to-r from-blue-500 to-cyan-400"
+                  />
+                </div>
+              </div>
             ))}
           </div>
 
-          {/* Soft skills */}
-          <div className="mt-10">
+          {/* Soft Skills */}
+          <div className="mt-6">
             <h3 className="text-xl font-semibold mb-4">
               Professional Strengths
             </h3>
@@ -128,27 +159,10 @@ export const About = () => {
               <li>✔ Attention to detail</li>
               <li>✔ Time management</li>
               <li>✔ Adaptability</li>
+              <li>✔ Creativity & Innovation</li>
+              <li>✔ Critical thinking</li>
             </ul>
           </div>
-        </motion.div>
-
-        {/* Education */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 mb-14"
-        >
-          <h3 className="text-xl font-semibold mb-4">Education</h3>
-          <ul className="space-y-3 text-gray-400">
-            <li>
-              <strong>Computer Engineering</strong> — Federal University Oye
-              Ekiti (2023–2027)
-            </li>
-            <li>Web Development Graduate — Sabi Programmers (2023)</li>
-            <li>Software Development Internship — Incubator Hub (2024)</li>
-          </ul>
         </motion.div>
 
         {/* Experience Timeline */}
@@ -158,10 +172,11 @@ export const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6"
+          className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 mb-14"
         >
           <h3 className="text-xl font-semibold mb-8">Work Experience</h3>
 
+          {/* Animated vertical line */}
           <motion.div
             style={{ height: lineHeight }}
             className="absolute left-6 top-16 w-0.5 bg-gradient-to-b from-blue-500 to-cyan-400 origin-top"
@@ -175,10 +190,10 @@ export const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.12 }}
                 viewport={{ once: true }}
-                className="relative"
+                className="relative group"
               >
-                <span className="absolute -left-8 top-1 w-4 h-4 bg-cyan-400 rounded-full shadow-[0_0_12px_rgba(34,211,238,0.8)]" />
-                <h4 className="font-semibold text-gray-200">
+                <span className="absolute -left-8 top-1 w-4 h-4 bg-cyan-400 rounded-full shadow-[0_0_12px_rgba(34,211,238,0.8)] group-hover:scale-125 transition-transform" />
+                <h4 className="font-semibold text-gray-200 group-hover:text-cyan-400 transition">
                   {exp.role}{" "}
                   <span className="text-sm text-gray-400">({exp.year})</span>
                 </h4>
@@ -186,6 +201,31 @@ export const About = () => {
               </motion.div>
             ))}
           </div>
+        </motion.div>
+
+        {/* Social Links */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="flex justify-center gap-6 text-2xl"
+        >
+          <a
+            href="https://github.com/Dev-Tee06"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-500 transition"
+          >
+            <FaGithub />
+          </a>
+          <a
+            href="https://linkedin.com/in/testimony-tosin-01206925b"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-500 transition"
+          >
+            <FaLinkedin />
+          </a>
         </motion.div>
       </div>
     </section>

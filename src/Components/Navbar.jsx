@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link as ScrollLink } from "react-scroll";
+import { Link } from "react-router-dom";
 
 export const Navbar = ({ menuOpen, setMenuOpen }) => {
   useEffect(() => {
@@ -14,17 +14,14 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <ScrollLink
-            to="home"
-            smooth
-            duration={500}
-            offset={-70}
+          <Link
+            to="/"
             className="cursor-pointer text-lg font-semibold tracking-wide text-white"
           >
             <span className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-xl font-bold">
               DEV-TEE
             </span>
-          </ScrollLink>
+          </Link>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -37,59 +34,33 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-10">
-            <ScrollLink
-              to="home"
-              smooth
-              duration={500}
-              offset={-70}
-              className={navItemClass}
-            >
+            <Link to="/" className={navItemClass}>
               Home
-            </ScrollLink>
+            </Link>
 
-            <ScrollLink
-              to="about"
-              smooth
-              duration={500}
-              offset={-70}
-              className={navItemClass}
-            >
+            <Link to="/about" className={navItemClass}>
               About
-            </ScrollLink>
+            </Link>
 
-            <ScrollLink
-              to="skill"
-              smooth
-              duration={500}
-              offset={-70}
-              className={navItemClass}
-            >
+            <Link to="/skills" className={navItemClass}>
               Skills
-            </ScrollLink>
+            </Link>
 
-            <ScrollLink
-              to="projects"
-              smooth
-              duration={500}
-              offset={-70}
-              className={navItemClass}
-            >
+            <Link to="/projects" className={navItemClass}>
               Projects
-            </ScrollLink>
+            </Link>
 
-            {/* CTA */}
-            <ScrollLink
-              to="contact"
-              smooth
-              duration={500}
-              offset={-70}
+            <Link
+              to="/contact"
               className="ml-2 px-5 py-2 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-cyan-400 hover:opacity-90 transition"
             >
               Get in Touch
-            </ScrollLink>
+            </Link>
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu (optional, keep your MobileMenu component if you have one) */}
     </nav>
   );
 };

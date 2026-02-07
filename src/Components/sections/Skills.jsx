@@ -1,3 +1,5 @@
+// Skills.jsx
+import { useState } from "react";
 import { motion } from "framer-motion";
 import css from "../../assets/css.png";
 import framer from "../../assets/framer.jpeg";
@@ -9,22 +11,46 @@ import tailwindcss from "../../assets/tailwindcss.png";
 import Rest from "../../assets/Rest.png";
 
 const skills = [
-  { id: 1, image: html, title: "HTML5" },
-  { id: 2, image: css, title: "CSS3" },
-  { id: 3, image: Js, title: "JavaScript" },
-  { id: 4, image: react, title: "React" },
-  { id: 5, image: tailwindcss, title: "Tailwind CSS" },
-  { id: 6, image: framer, title: "Framer Motion" },
-  { id: 7, image: git, title: "Git & GitHub" },
-  { id: 8, image: Rest, title: "REST APIs" },
+  { id: 1, image: html, title: "HTML5", level: 95, type: "Frontend" },
+  { id: 2, image: css, title: "CSS3", level: 90, type: "Frontend" },
+  { id: 3, image: Js, title: "JavaScript", level: 95, type: "Frontend" },
+  { id: 4, image: react, title: "React", level: 90, type: "Frontend" },
+  {
+    id: 5,
+    image: tailwindcss,
+    title: "Tailwind CSS",
+    level: 85,
+    type: "Frontend",
+  },
+  { id: 6, image: framer, title: "Framer Motion", level: 75, type: "Tools" },
+  { id: 7, image: git, title: "Git & GitHub", level: 85, type: "Tools" },
+  { id: 8, image: Rest, title: "REST APIs", level: 80, type: "APIs" },
 ];
 
 function Skills() {
+  const [filter, setFilter] = useState("All"); // Optional filter by type
+
+  const filteredSkills =
+    filter === "All" ? skills : skills.filter((skill) => skill.type === filter);
+
+  const types = ["All", "Frontend", "Tools", "APIs"];
+
   return (
-    <section id="skill" className="relative py-24 overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-0 right-0 w-72 h-72 bg-blue-500/20 blur-[120px] rounded-full" />
-      <div className="absolute bottom-0 left-0 w-72 h-72 bg-cyan-400/20 blur-[120px] rounded-full" />
+    <section
+      id="skills"
+      className="relative py-24 overflow-hidden bg-black text-gray-100"
+    >
+      {/* Background glows */}
+      <motion.div
+        animate={{ y: [0, 20, 0], x: [0, 10, -10, 0] }}
+        transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
+        className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-tr from-blue-500 to-cyan-400/20 blur-[120px] rounded-full"
+      />
+      <motion.div
+        animate={{ y: [0, -20, 0], x: [0, -10, 10, 0] }}
+        transition={{ repeat: Infinity, duration: 14, ease: "easeInOut" }}
+        className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-cyan-400 to-blue-500/20 blur-[120px] rounded-full"
+      />
 
       <div className="relative max-w-6xl mx-auto px-6">
         {/* Header */}
@@ -50,24 +76,42 @@ function Skills() {
           </p>
         </motion.div>
 
+        {/* Filter Buttons */}
+        <div className="flex justify-center gap-4 mb-12 flex-wrap">
+          {types.map((type, i) => (
+            <motion.button
+              key={i}
+              onClick={() => setFilter(type)}
+              className={`px-5 py-2 rounded-full font-semibold text-sm transition ${
+                filter === type
+                  ? "bg-gradient-to-r from-blue-500 to-cyan-400 text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+                  : "bg-white/5 text-gray-300 hover:bg-white/10"
+              }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {type}
+            </motion.button>
+          ))}
+        </div>
+
         {/* Skills Grid */}
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {skills.map((skill, index) => (
+          {filteredSkills.map((skill, index) => (
             <motion.div
               key={skill.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8 }}
-              className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400"
+              whileHover={{ y: -8, scale: 1.05 }}
+              className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 flex flex-col items-center text-center transition-all duration-300 hover:border-cyan-400 hover:shadow-[0_0_25px_rgba(0,255,255,0.25)]"
             >
-              {/* Glow on hover */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/10 to-cyan-400/10 opacity-0 group-hover:opacity-100 transition duration-300" />
+              {/* Hover Glow */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-blue-500/10 to-cyan-400/10 opacity-0 group-hover:opacity-100 transition duration-300" />
 
               {/* Icon */}
               <motion.div
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.15 }}
                 className="relative z-10 w-20 h-20 rounded-xl bg-black/30 flex items-center justify-center mb-6"
               >
                 <img
@@ -82,8 +126,19 @@ function Skills() {
                 {skill.title}
               </h3>
 
+              {/* Skill Bar */}
+              <div className="relative z-10 w-full h-2 bg-white/10 rounded-full mt-2 overflow-hidden">
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${skill.level}%` }}
+                  transition={{ duration: 1 }}
+                  className="h-2 bg-gradient-to-r from-blue-500 to-cyan-400"
+                />
+              </div>
+
+              {/* Proficiency */}
               <p className="relative z-10 mt-2 text-sm text-gray-400">
-                Professional Experience
+                {skill.level}% proficiency
               </p>
             </motion.div>
           ))}

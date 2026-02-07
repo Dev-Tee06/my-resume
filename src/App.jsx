@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { LoadingScreen } from "./Components/LoadingScreen";
 import { Navbar } from "./Components/Navbar";
 import { MobileMenu } from "./Components/MobileMenu";
@@ -13,8 +14,9 @@ import "./index.css";
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div>
+    <Router>
       {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
       <div
         className={`min-h-screen transition-opacity duration-700 ${
@@ -23,14 +25,19 @@ function App() {
       >
         <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Home />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
+
+        {/* Define Routes for different pages */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+
         <Footer />
       </div>
-    </div>
+    </Router>
   );
 }
 
