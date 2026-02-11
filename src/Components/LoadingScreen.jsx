@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export const LoadingScreen = ({ onComplete }) => {
   const [text, setText] = useState("");
-  const fullText = "< H E L L O   I   A M   T E S T I M O N Y >";
+  const fullText = "< H E L L O   I   A M   T E S T I M O N Y />";
 
   // Glitchy letters helper
   const randomChar = () => {
@@ -33,7 +33,7 @@ export const LoadingScreen = ({ onComplete }) => {
         clearInterval(interval);
         // ensure final text displays correctly with spacing
         setText(fullText);
-        setTimeout(() => onComplete(), 1500);
+        setTimeout(() => onComplete(), 800);
       }
     }, 150); // slower typing speed
     return () => clearInterval(interval);

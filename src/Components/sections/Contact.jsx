@@ -75,7 +75,7 @@ export const Contact = () => {
           className="bg-gradient-to-tr from-blue-900/30 to-cyan-900/20 backdrop-blur-xl border border-white/10 rounded-3xl p-8 space-y-6 shadow-lg hover:shadow-cyan-400/20 transition"
         >
           {/* Name */}
-          <div className="relative">
+          <div>
             <label className="block text-sm text-gray-400 mb-2">
               Your Name
             </label>
@@ -93,7 +93,7 @@ export const Contact = () => {
           </div>
 
           {/* Email */}
-          <div className="relative">
+          <div>
             <label className="block text-sm text-gray-400 mb-2">
               Email Address
             </label>
@@ -111,7 +111,7 @@ export const Contact = () => {
           </div>
 
           {/* Message */}
-          <div className="relative">
+          <div>
             <label className="block text-sm text-gray-400 mb-2">Message</label>
             <textarea
               name="message"
@@ -126,7 +126,7 @@ export const Contact = () => {
             />
           </div>
 
-          {/* Status Message */}
+          {/* Status */}
           {status === "success" && (
             <p className="text-green-400 text-sm">
               ✅ Message sent successfully. I’ll be in touch!
@@ -149,37 +149,40 @@ export const Contact = () => {
             {status === "loading" ? "Sending..." : "Send Message"}
           </motion.button>
 
-          {/* Quick Contact */}
-          <div className="mt-6 flex justify-center gap-6">
+          {/* Quick Contact - Responsive Fixed */}
+          <div className="mt-8 grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-4">
             <motion.a
-              href="mailto:youremail@example.com"
+              href="mailto:babayodetestimony0318@gmail.com"
               whileHover={{ y: -3 }}
-              className="flex items-center gap-2 text-sm text-white bg-white/5 px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition"
+              className="flex items-center justify-center gap-2 text-sm text-white bg-white/5 px-4 py-3 rounded-full border border-white/20 hover:bg-white/10 hover:shadow-md hover:shadow-cyan-400/20 transition w-full md:w-auto"
             >
               <FaEnvelope /> Email
             </motion.a>
+
             <motion.a
-              href="tel:+1234567890"
+              href="tel:+2347061158745"
               whileHover={{ y: -3 }}
-              className="flex items-center gap-2 text-sm text-white bg-white/5 px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition"
+              className="flex items-center justify-center gap-2 text-sm text-white bg-white/5 px-4 py-3 rounded-full border border-white/20 hover:bg-white/10 hover:shadow-md hover:shadow-cyan-400/20 transition w-full md:w-auto"
             >
               <FaPhoneAlt /> Call
             </motion.a>
+
             <motion.a
-              href="https://linkedin.com/in/yourprofile"
+              href="https://linkedin.com/in/testimony-tosin-01206925b"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -3 }}
-              className="flex items-center gap-2 text-sm text-white bg-white/5 px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition"
+              className="flex items-center justify-center gap-2 text-sm text-white bg-white/5 px-4 py-3 rounded-full border border-white/20 hover:bg-white/10 hover:shadow-md hover:shadow-cyan-400/20 transition w-full md:w-auto"
             >
               <FaLinkedin /> LinkedIn
             </motion.a>
+
             <motion.a
-              href="https://github.com/yourprofile"
+              href="https://github.com/Dev-Tee06"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -3 }}
-              className="flex items-center gap-2 text-sm text-white bg-white/5 px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition"
+              className="flex items-center justify-center gap-2 text-sm text-white bg-white/5 px-4 py-3 rounded-full border border-white/20 hover:bg-white/10 hover:shadow-md hover:shadow-cyan-400/20 transition w-full md:w-auto"
             >
               <FaGithub /> GitHub
             </motion.a>
