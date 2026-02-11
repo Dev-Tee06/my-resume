@@ -14,14 +14,15 @@ export const MobileMenu = ({ menuOpen, setMenuOpen }) => {
   ];
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {menuOpen && (
         <>
-          {/* Background Overlay */}
+          {/* Overlay */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
             onClick={() => setMenuOpen(false)}
             className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40"
           />
@@ -31,23 +32,26 @@ export const MobileMenu = ({ menuOpen, setMenuOpen }) => {
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed top-0 right-0 w-[85%] max-w-sm h-screen z-50 
-                       bg-gradient-to-br from-[#0f172a] via-[#0b1120] to-black 
-                       border-l border-white/10 
-                       shadow-2xl 
-                       p-8 flex flex-col"
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="fixed top-0 right-0 w-[85%] max-w-sm h-screen z-50
+                       bg-gradient-to-br from-[#0f172a] via-[#0b1120] to-black
+                       border-l border-white/10
+                       shadow-2xl
+                       p-8 flex flex-col relative
+                       will-change-transform"
           >
-            {/* Gradient Glow */}
-            <div className="absolute -top-20 -right-20 w-72 h-72 bg-cyan-500/20 blur-[120px] rounded-full" />
+            {/* Glow */}
+            <div className="absolute -top-20 -right-20 w-72 h-72 bg-cyan-500/20 blur-[120px] rounded-full pointer-events-none" />
 
-            {/* Close Button */}
-            <button
-              onClick={() => setMenuOpen(false)}
-              className="self-end text-white text-2xl hover:text-cyan-400 transition"
-            >
-              <FaTimes />
-            </button>
+            {/* Close Header */}
+            <div className="flex justify-end">
+              <button
+                onClick={() => setMenuOpen(false)}
+                className="text-white text-2xl hover:text-cyan-400 transition duration-200"
+              >
+                <FaTimes />
+              </button>
+            </div>
 
             {/* Menu Items */}
             <div className="flex flex-col gap-5 mt-12">
@@ -57,10 +61,9 @@ export const MobileMenu = ({ menuOpen, setMenuOpen }) => {
                 return (
                   <motion.div
                     key={item.path}
-                    initial={{ opacity: 0, x: 40 }}
+                    initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 40 }}
-                    transition={{ delay: i * 0.08 }}
+                    transition={{ delay: i * 0.06 }}
                   >
                     <Link
                       to={item.path}
@@ -79,14 +82,6 @@ export const MobileMenu = ({ menuOpen, setMenuOpen }) => {
                 );
               })}
             </div>
-
-            {/* Bottom CTA */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="mt-auto"
-            ></motion.div>
           </motion.div>
         </>
       )}
