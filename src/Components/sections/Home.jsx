@@ -163,7 +163,7 @@ export const Home = () => {
           className="flex justify-center gap-5 flex-wrap mb-16"
         >
           <a
-            href="#projects"
+            href="projects"
             className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-8 py-3 rounded-full font-semibold tracking-wide transition hover:shadow-[0_0_25px_rgba(59,130,246,0.6)] hover:-translate-y-1"
           >
             View Projects

@@ -9,6 +9,8 @@ import Js from "../../assets/Js.jpeg";
 import react from "../../assets/react.png";
 import tailwindcss from "../../assets/tailwindcss.png";
 import Rest from "../../assets/Rest.png";
+import Next from "../../assets/next.png";
+import Firebase from "../../assets/firebase.png";
 
 const skills = [
   { id: 1, image: html, title: "HTML5", level: 95, type: "Frontend" },
@@ -25,6 +27,8 @@ const skills = [
   { id: 6, image: framer, title: "Framer Motion", level: 75, type: "Tools" },
   { id: 7, image: git, title: "Git & GitHub", level: 85, type: "Tools" },
   { id: 8, image: Rest, title: "REST APIs", level: 80, type: "APIs" },
+  { id: 9, image: Next, title: "Next.js", level: 80, type: "Frontend" },
+  { id: 10, image: Firebase, title: "Firebase", level: 80, type: "Tools" },
 ];
 
 function Skills() {

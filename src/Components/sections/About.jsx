@@ -7,9 +7,11 @@ import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 export const About = () => {
   const frontendSkills = [
     { name: "React", level: 90 },
+    { name: "Next.js", level: 80 },
     { name: "Tailwind CSS", level: 85 },
     { name: "JavaScript", level: 95 },
     { name: "CSS", level: 90 },
+    { name: "Firebase", level: 80 },
     { name: "REST APIs", level: 80 },
     { name: "Framer Motion", level: 70 },
     { name: "Git & GitHub", level: 85 },
@@ -37,11 +39,6 @@ export const About = () => {
       year: "2025",
       details:
         "Delivered modern, high-performance websites for multiple clients.",
-    },
-    {
-      role: "Frontend Developer — TESS Stores",
-      year: "2025",
-      details: "Built an interactive e-commerce platform with smooth UX flows.",
     },
     {
       role: "Frontend Developer — Xpress",
@@ -99,16 +96,6 @@ export const About = () => {
               Frontend Experiences
             </span>
           </h2>
-          <p className="mt-3 text-gray-400">
-            Check out my{" "}
-            <Link
-              to="/projects"
-              className="text-cyan-400 underline hover:text-blue-500 transition"
-            >
-              projects
-            </Link>{" "}
-            and see what I’ve built!
-          </p>
         </motion.div>
 
         {/* About Card */}
