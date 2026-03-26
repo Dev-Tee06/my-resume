@@ -24,7 +24,11 @@ export const MobileMenu = ({ menuOpen, setMenuOpen }) => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={() => setMenuOpen(false)}
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40"
+            className="fixed inset-0 z-40"
+            style={{
+              background: "rgba(5, 5, 16, 0.75)",
+              backdropFilter: "blur(8px)",
+            }}
           />
 
           {/* Sliding Panel */}
@@ -33,28 +37,29 @@ export const MobileMenu = ({ menuOpen, setMenuOpen }) => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="fixed top-0 right-0 w-[85%] max-w-sm h-screen z-50
-                       bg-gradient-to-br from-[#0f172a] via-[#0b1120] to-black
-                       border-l border-white/10
-                       shadow-2xl
-                       p-8 flex flex-col relative
-                       will-change-transform"
+            className="fixed top-0 right-0 w-[85%] max-w-sm h-screen z-50 p-8 flex flex-col relative will-change-transform"
+            style={{
+              background: "linear-gradient(180deg, rgba(15, 10, 40, 0.95) 0%, rgba(5, 5, 16, 0.98) 100%)",
+              backdropFilter: "blur(32px)",
+              borderLeft: "1px solid rgba(255,255,255,0.06)",
+            }}
           >
-            {/* Glow */}
-            <div className="absolute -top-20 -right-20 w-72 h-72 bg-cyan-500/20 blur-[120px] rounded-full pointer-events-none" />
+            {/* Glow orbs */}
+            <div className="absolute -top-20 -right-20 w-60 h-60 bg-indigo-500/15 blur-[100px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-20 -left-10 w-40 h-40 bg-violet-500/10 blur-[80px] rounded-full pointer-events-none" />
 
             {/* Close Header */}
             <div className="flex justify-end">
               <button
                 onClick={() => setMenuOpen(false)}
-                className="text-white text-2xl hover:text-cyan-400 transition duration-200"
+                className="text-gray-400 text-xl hover:text-white transition duration-200 p-2"
               >
                 <FaTimes />
               </button>
             </div>
 
             {/* Menu Items */}
-            <div className="flex flex-col gap-5 mt-12">
+            <div className="flex flex-col gap-3 mt-12">
               {menuItems.map((item, i) => {
                 const isActive = location.pathname === item.path;
 
@@ -68,13 +73,32 @@ export const MobileMenu = ({ menuOpen, setMenuOpen }) => {
                     <Link
                       to={item.path}
                       onClick={() => setMenuOpen(false)}
-                      className={`block w-full px-6 py-4 rounded-2xl text-lg font-semibold transition-all duration-300
-                        ${
-                          isActive
-                            ? "bg-gradient-to-r from-blue-500 to-cyan-400 text-white shadow-lg shadow-cyan-500/30"
-                            : "bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white"
+                      className="block w-full px-6 py-4 rounded-2xl text-lg font-semibold transition-all duration-300"
+                      style={{
+                        fontFamily: "'Space Grotesk', sans-serif",
+                        background: isActive
+                          ? "linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4)"
+                          : "rgba(255,255,255,0.03)",
+                        color: isActive ? "#fff" : "#9ca3af",
+                        boxShadow: isActive
+                          ? "0 8px 30px rgba(99,102,241,0.25)"
+                          : "none",
+                        borderLeft: isActive
+                          ? "none"
+                          : "2px solid transparent",
+                      }}
+                      onMouseEnter={(e) => {
+                        if (!isActive) {
+                          e.target.style.background = "rgba(255,255,255,0.06)";
+                          e.target.style.color = "#fff";
                         }
-                      `}
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!isActive) {
+                          e.target.style.background = "rgba(255,255,255,0.03)";
+                          e.target.style.color = "#9ca3af";
+                        }
+                      }}
                     >
                       {item.label}
                     </Link>

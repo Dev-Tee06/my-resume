@@ -7,25 +7,34 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
   }, [menuOpen]);
 
   const navItemClass =
-    "relative text-gray-300 font-medium text-base cursor-pointer transition-colors duration-300 hover:text-cyan-400 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full";
+    "relative text-gray-400 font-medium text-sm tracking-wide cursor-pointer transition-all duration-300 hover:text-white after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:rounded-full after:bg-gradient-to-r after:from-indigo-500 after:to-cyan-400 after:transition-all after:duration-300 hover:after:w-full";
 
   return (
-    <nav className="fixed top-0 w-full z-40 bg-[rgba(10,10,10,0.8)] backdrop-blur-lg border-b border-white/10">
+    <nav
+      className="fixed top-0 w-full z-40 border-b"
+      style={{
+        background: "rgba(5, 5, 16, 0.7)",
+        backdropFilter: "blur(24px)",
+        WebkitBackdropFilter: "blur(24px)",
+        borderColor: "rgba(255,255,255,0.06)",
+      }}
+    >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link
             to="/"
-            className="cursor-pointer text-lg font-semibold tracking-wide text-white"
+            className="cursor-pointer text-lg font-bold tracking-wide"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
-            <span className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-xl font-bold">
+            <span className="gradient-text text-xl font-bold">
               DEV-TEE
             </span>
           </Link>
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden text-3xl text-white z-50"
+            className="md:hidden text-2xl text-white z-50"
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label="Toggle Menu"
           >
@@ -52,15 +61,16 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
 
             <Link
               to="/contact"
-              className="ml-2 px-5 py-2 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-cyan-400 hover:opacity-90 transition"
+              className="ml-2 px-6 py-2 rounded-full text-sm font-semibold text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(99,102,241,0.4)] hover:-translate-y-[1px]"
+              style={{
+                background: "linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4)",
+              }}
             >
               Get in Touch
             </Link>
           </div>
         </div>
       </div>
-
-      {/* Mobile Menu (optional, keep your MobileMenu component if you have one) */}
     </nav>
   );
 };

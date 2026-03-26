@@ -26,27 +26,35 @@ export const LoadingScreen = ({ onComplete }) => {
       if (index > fullText.length) {
         clearInterval(interval);
         setText(fullText);
-        setTimeout(() => onComplete(), 300); // faster finish
+        setTimeout(() => onComplete(), 300);
       }
-    }, 40); // MUCH faster typing
+    }, 40);
 
     return () => clearInterval(interval);
   }, [onComplete]);
 
   return (
-    <div className="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center overflow-hidden">
-      {/* Reduced Particles (Better Performance) */}
-      {Array.from({ length: 18 }).map((_, i) => (
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden"
+      style={{ background: "linear-gradient(135deg, #050510 0%, #0a0520 50%, #050510 100%)" }}
+    >
+      {/* Gradient mesh orbs */}
+      <div className="absolute top-1/4 -left-20 w-[300px] h-[300px] bg-indigo-500/20 rounded-full blur-[120px]" />
+      <div className="absolute bottom-1/4 -right-20 w-[300px] h-[300px] bg-violet-500/15 rounded-full blur-[120px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] bg-cyan-500/10 rounded-full blur-[100px]" />
+
+      {/* Floating particles */}
+      {Array.from({ length: 14 }).map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1.5 h-1.5 rounded-full bg-cyan-400 blur-sm opacity-40"
+          className="absolute w-1 h-1 rounded-full"
           style={{
             top: `${Math.random() * 100}%`,
             left: `${Math.random() * 100}%`,
+            background: i % 3 === 0 ? "#818cf8" : i % 3 === 1 ? "#a78bfa" : "#22d3ee",
           }}
           animate={{
-            y: ["-10px", "10px"],
-            opacity: [0.3, 0.6, 0.3],
+            y: ["-15px", "15px"],
+            opacity: [0.2, 0.6, 0.2],
           }}
           transition={{
             duration: Math.random() * 4 + 3,
@@ -57,28 +65,41 @@ export const LoadingScreen = ({ onComplete }) => {
         />
       ))}
 
-      {/* Smaller Text */}
+      {/* Typed Text */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.4 }}
-        className="mb-6 text-2xl md:text-4xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="mb-8 text-2xl md:text-4xl font-bold tracking-tight gradient-text"
+        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
       >
         {text}
-        <span className="ml-1 animate-pulse">|</span>
+        <span className="ml-1 animate-pulse text-violet-400">|</span>
       </motion.div>
 
-      {/* Faster Loading Bar */}
-      <div className="w-[200px] h-1.5 bg-gray-900 rounded overflow-hidden relative">
+      {/* Loading bar container */}
+      <div className="relative w-[220px] h-[3px] rounded-full overflow-hidden"
+        style={{ background: "rgba(255,255,255,0.06)" }}
+      >
         <motion.div
-          className="h-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500"
+          className="h-full rounded-full"
+          style={{ background: "linear-gradient(90deg, #6366f1, #a78bfa, #22d3ee)" }}
           animate={{ x: ["-100%", "100%"] }}
-          transition={{ repeat: Infinity, duration: 0.9, ease: "linear" }}
+          transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
         />
       </div>
 
+      {/* Pulsing ring around bar */}
+      <motion.div
+        className="absolute w-[240px] h-[24px] rounded-full border border-indigo-500/20"
+        style={{ top: "calc(50% + 28px)" }}
+        animate={{ opacity: [0.3, 0.6, 0.3], scale: [0.98, 1.02, 0.98] }}
+        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+      />
+
       <motion.p
-        className="mt-4 text-gray-500 text-xs md:text-sm italic"
+        className="mt-6 text-gray-500 text-xs md:text-sm tracking-wide"
+        style={{ fontFamily: "'Inter', sans-serif" }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
