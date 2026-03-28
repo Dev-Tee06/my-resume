@@ -7,7 +7,6 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 export const Home = () => {
   const skills = [
     "Frontend Developer",
-    "React Enthusiast",
     "UI/UX Lover",
     "Tech Creator",
     "Problem Solver",
@@ -33,17 +32,26 @@ export const Home = () => {
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
           className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full blur-[150px]"
-          style={{ background: "radial-gradient(circle, rgba(99,102,241,0.25), rgba(139,92,246,0.15), transparent)" }}
+          style={{
+            background:
+              "radial-gradient(circle, rgba(99,102,241,0.25), rgba(139,92,246,0.15), transparent)",
+          }}
         />
         <motion.div
           animate={{ rotate: -360 }}
           transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
           className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full blur-[150px]"
-          style={{ background: "radial-gradient(circle, rgba(6,182,212,0.2), rgba(16,185,129,0.1), transparent)" }}
+          style={{
+            background:
+              "radial-gradient(circle, rgba(6,182,212,0.2), rgba(16,185,129,0.1), transparent)",
+          }}
         />
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full blur-[120px]"
-          style={{ background: "radial-gradient(circle, rgba(139,92,246,0.12), transparent)" }}
+          style={{
+            background:
+              "radial-gradient(circle, rgba(139,92,246,0.12), transparent)",
+          }}
         />
       </div>
 
@@ -63,7 +71,12 @@ export const Home = () => {
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
-              background: i % 3 === 0 ? "rgba(129,140,248,0.4)" : i % 3 === 1 ? "rgba(167,139,250,0.3)" : "rgba(34,211,238,0.3)",
+              background:
+                i % 3 === 0
+                  ? "rgba(129,140,248,0.4)"
+                  : i % 3 === 1
+                    ? "rgba(167,139,250,0.3)"
+                    : "rgba(34,211,238,0.3)",
             }}
           />
         ))}
@@ -97,7 +110,10 @@ export const Home = () => {
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.5 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 gradient-text animate-gradient"
-            style={{ fontFamily: "'Space Grotesk', sans-serif", lineHeight: 1.1 }}
+            style={{
+              fontFamily: "'Space Grotesk', sans-serif",
+              lineHeight: 1.1,
+            }}
           >
             {skills[currentSkill]}
           </motion.h1>
@@ -108,10 +124,12 @@ export const Home = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-2xl md:text-4xl font-bold mb-6"
-            style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#e2e8f0" }}
+            style={{
+              fontFamily: "'Space Grotesk', sans-serif",
+              color: "#e2e8f0",
+            }}
           >
-            Hi, I'm{" "}
-            <span className="gradient-text-accent">Testimony</span>
+            Hi, I'm <span className="gradient-text-accent">Testimony</span>
           </motion.h2>
 
           {/* Description */}
@@ -122,9 +140,11 @@ export const Home = () => {
             className="text-gray-400 text-base md:text-lg max-w-xl mb-8 leading-relaxed"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
-            I build high-performance, visually engaging digital experiences using{" "}
-            <span className="text-indigo-400 font-medium">React</span>,{" "}
-            <span className="text-violet-400 font-medium">Tailwind CSS</span>, and{" "}
+            I build high-performance, visually engaging digital experiences
+            using <span className="text-indigo-400 font-medium">React</span>,{" "}
+            <span className="text-indigo-400 font-medium">Next Js</span>,
+            <span className="text-violet-400 font-medium">Tailwind CSS</span>,
+            <span className="text-indigo-400 font-medium">Firebase</span>, and{" "}
             <span className="text-cyan-400 font-medium">Framer Motion</span>.
             Clean code. Seamless UX. Polished UI.
           </motion.p>
@@ -139,7 +159,10 @@ export const Home = () => {
             <a
               href="/projects"
               className="px-8 py-3 rounded-full font-semibold text-white text-sm tracking-wide transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_0_35px_rgba(99,102,241,0.4)]"
-              style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4)" }}
+              style={{
+                background:
+                  "linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4)",
+              }}
             >
               View Projects
             </a>
@@ -171,7 +194,10 @@ export const Home = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-xl text-lg text-gray-400 transition-all duration-300 hover:text-white hover:-translate-y-[2px]"
-              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}
+              style={{
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.06)",
+              }}
             >
               <FaGithub />
             </a>
@@ -180,7 +206,10 @@ export const Home = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-xl text-lg text-gray-400 transition-all duration-300 hover:text-white hover:-translate-y-[2px]"
-              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}
+              style={{
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.06)",
+              }}
             >
               <FaLinkedin />
             </a>
@@ -198,7 +227,10 @@ export const Home = () => {
             {/* Glow ring */}
             <div
               className="absolute -inset-3 rounded-full opacity-40 group-hover:opacity-70 transition-opacity duration-500 blur-xl"
-              style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4)" }}
+              style={{
+                background:
+                  "linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4)",
+              }}
             />
 
             {/* Avatar container */}
@@ -206,7 +238,8 @@ export const Home = () => {
               className="relative w-[260px] h-[260px] md:w-[320px] md:h-[320px] rounded-full overflow-hidden"
               style={{
                 border: "3px solid rgba(255,255,255,0.08)",
-                boxShadow: "0 0 50px rgba(99,102,241,0.2), inset 0 0 50px rgba(0,0,0,0.3)",
+                boxShadow:
+                  "0 0 50px rgba(99,102,241,0.2), inset 0 0 50px rgba(0,0,0,0.3)",
               }}
             >
               <img
@@ -232,7 +265,11 @@ export const Home = () => {
                   left: i === 0 ? "-20%" : i === 2 ? "-25%" : "auto",
                 }}
                 animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 3 + i,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               >
                 {skill}
               </motion.span>

@@ -8,7 +8,7 @@ export const About = () => {
     { name: "React", level: 90 },
     { name: "Next.js", level: 80 },
     { name: "Tailwind CSS", level: 85 },
-    { name: "JavaScript", level: 95 },
+    { name: "JavaScript", level: 80 },
     { name: "CSS", level: 90 },
     { name: "Firebase", level: 80 },
     { name: "REST APIs", level: 80 },
@@ -82,13 +82,19 @@ export const About = () => {
         animate={{ y: [0, 20, 0], x: [0, 10, -10, 0], rotate: [0, 360, 0] }}
         transition={{ repeat: Infinity, duration: 20, ease: "easeInOut" }}
         className="absolute -top-32 right-0 w-[400px] h-[400px] rounded-full blur-[150px]"
-        style={{ background: "radial-gradient(circle, rgba(99,102,241,0.2), rgba(139,92,246,0.1), transparent)" }}
+        style={{
+          background:
+            "radial-gradient(circle, rgba(99,102,241,0.2), rgba(139,92,246,0.1), transparent)",
+        }}
       />
       <motion.div
         animate={{ y: [0, -20, 0], x: [0, -10, 10, 0], rotate: [0, -360, 0] }}
         transition={{ repeat: Infinity, duration: 22, ease: "easeInOut" }}
         className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[150px]"
-        style={{ background: "radial-gradient(circle, rgba(6,182,212,0.15), rgba(16,185,129,0.08), transparent)" }}
+        style={{
+          background:
+            "radial-gradient(circle, rgba(6,182,212,0.15), rgba(16,185,129,0.08), transparent)",
+        }}
       />
 
       <div className="relative max-w-5xl mx-auto px-6">
