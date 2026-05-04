@@ -1,282 +1,256 @@
-// Home.jsx
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import {
+  FaArrowRight,
+  FaChartLine,
+  FaCheckCircle,
+  FaComments,
+  FaLightbulb,
+  FaSearchDollar,
+  FaTools,
+} from "react-icons/fa";
 import tess from "../../assets/tess.jpg";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+
+const valuePoints = [
+  {
+    icon: <FaSearchDollar />,
+    title: "Who I help",
+    text: "Service businesses, personal brands, startups, and founders who need a clearer digital presence that converts attention into action.",
+  },
+  {
+    icon: <FaTools />,
+    title: "Problems I solve",
+    text: "Weak positioning, confusing websites, poor user journeys, low trust, and digital systems that do not support growth.",
+  },
+  {
+    icon: <FaChartLine />,
+    title: "Outcomes I deliver",
+    text: "Sharper messaging, stronger user experience, better lead flow, and websites that work as business assets.",
+  },
+];
+
+const reasons = [
+  {
+    icon: <FaLightbulb />,
+    title: "Problem-solving mindset",
+    text: "I look for the real blocker before touching the design.",
+  },
+  {
+    icon: <FaChartLine />,
+    title: "Business-focused thinking",
+    text: "Every section has a job: clarify, build trust, or move users forward.",
+  },
+  {
+    icon: <FaCheckCircle />,
+    title: "Clean execution",
+    text: "Fast, responsive interfaces with clear hierarchy and smooth interactions.",
+  },
+  {
+    icon: <FaComments />,
+    title: "Reliable communication",
+    text: "You get clear updates, practical thinking, and decisions that make sense.",
+  },
+];
+
+const processPreview = [
+  "Understand the business and audience",
+  "Find the gaps slowing growth",
+  "Design the strategy and user journey",
+  "Build, refine, and improve",
+];
 
 export const Home = () => {
-  const skills = [
-    "Frontend Developer",
-    "UI/UX Lover",
-    "Tech Creator",
-    "Problem Solver",
-  ];
-  const [currentSkill, setCurrentSkill] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSkill((prev) => (prev + 1) % skills.length);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
-      style={{ background: "var(--bg-deep)" }}
-    >
-      {/* Animated gradient mesh background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full blur-[150px]"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(99,102,241,0.25), rgba(139,92,246,0.15), transparent)",
-          }}
-        />
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full blur-[150px]"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(6,182,212,0.2), rgba(16,185,129,0.1), transparent)",
-          }}
-        />
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full blur-[120px]"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(139,92,246,0.12), transparent)",
-          }}
-        />
-      </div>
+    <main id="home" className="relative overflow-hidden" style={{ background: "var(--bg-deep)" }}>
+      <section className="relative min-h-screen overflow-hidden pt-24">
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(6,182,212,0.08),transparent_35%,rgba(30,64,255,0.14)_75%,transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.08),transparent_35%)]" />
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{ y: ["-20px", "20px"], x: ["-10px", "10px"] }}
-            transition={{
-              duration: Math.random() * 4 + 3,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut",
-            }}
-            className="absolute w-1 h-1 rounded-full"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              background:
-                i % 3 === 0
-                  ? "rgba(129,140,248,0.4)"
-                  : i % 3 === 1
-                    ? "rgba(167,139,250,0.3)"
-                    : "rgba(34,211,238,0.3)",
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Main Content — Split Layout */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
-        {/* Left Side — Text Content */}
-        <div className="flex-1 text-center lg:text-left">
-          {/* Role badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full text-sm font-medium"
-            style={{
-              background: "rgba(99,102,241,0.1)",
-              border: "1px solid rgba(99,102,241,0.2)",
-              color: "#818cf8",
-            }}
-          >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            Available for work
-          </motion.div>
-
-          {/* Animated Role Title */}
-          <motion.h1
-            key={currentSkill}
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -20, opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 gradient-text animate-gradient"
-            style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-              lineHeight: 1.1,
-            }}
-          >
-            {skills[currentSkill]}
-          </motion.h1>
-
-          {/* Name */}
-          <motion.h2
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-2xl md:text-4xl font-bold mb-6"
-            style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-              color: "#e2e8f0",
-            }}
-          >
-            Hi, I'm <span className="gradient-text-accent">Testimony</span>
-          </motion.h2>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-gray-400 text-base md:text-lg max-w-xl mb-8 leading-relaxed"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            I build high-performance, visually engaging digital experiences
-            using <span className="text-indigo-400 font-medium">React</span>,{" "}
-            <span className="text-indigo-400 font-medium">Next Js</span>,
-            <span className="text-violet-400 font-medium">Tailwind CSS</span>,
-            <span className="text-indigo-400 font-medium">Firebase</span>, and{" "}
-            <span className="text-cyan-400 font-medium">Framer Motion</span>.
-            Clean code. Seamless UX. Polished UI.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8"
-          >
-            <a
-              href="/projects"
-              className="px-8 py-3 rounded-full font-semibold text-white text-sm tracking-wide transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_0_35px_rgba(99,102,241,0.4)]"
-              style={{
-                background:
-                  "linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4)",
-              }}
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 py-14 md:py-24">
+          <div className="flex flex-col lg:grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="w-full max-w-2xl text-center lg:text-left"
             >
-              View Projects
-            </a>
-
-            <a
-              href="https://wa.link/yzi073"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_0_25px_rgba(99,102,241,0.2)]"
-              style={{
-                border: "1px solid rgba(99,102,241,0.3)",
-                color: "#818cf8",
-                background: "rgba(99,102,241,0.05)",
-              }}
-            >
-              Contact Me
-            </a>
-          </motion.div>
-
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.2 }}
-            className="flex gap-4 justify-center lg:justify-start"
-          >
-            <a
-              href="https://github.com/Dev-Tee06"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-xl text-lg text-gray-400 transition-all duration-300 hover:text-white hover:-translate-y-[2px]"
-              style={{
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.06)",
-              }}
-            >
-              <FaGithub />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/testimony-tosin-01206925b/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-xl text-lg text-gray-400 transition-all duration-300 hover:text-white hover:-translate-y-[2px]"
-              style={{
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.06)",
-              }}
-            >
-              <FaLinkedin />
-            </a>
-          </motion.div>
-        </div>
-
-        {/* Right Side — Avatar */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="flex-shrink-0"
-        >
-          <div className="relative group">
-            {/* Glow ring */}
-            <div
-              className="absolute -inset-3 rounded-full opacity-40 group-hover:opacity-70 transition-opacity duration-500 blur-xl"
-              style={{
-                background:
-                  "linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4)",
-              }}
-            />
-
-            {/* Avatar container */}
-            <div
-              className="relative w-[260px] h-[260px] md:w-[320px] md:h-[320px] rounded-full overflow-hidden"
-              style={{
-                border: "3px solid rgba(255,255,255,0.08)",
-                boxShadow:
-                  "0 0 50px rgba(99,102,241,0.2), inset 0 0 50px rgba(0,0,0,0.3)",
-              }}
-            >
-              <img
-                src={tess}
-                alt="Testimony"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                draggable="false"
-              />
-            </div>
-
-            {/* Floating skill badges around avatar */}
-            {skills.slice(0, 3).map((skill, i) => (
-              <motion.span
-                key={i}
-                className="absolute hidden lg:block px-3 py-1.5 rounded-full text-xs font-medium"
+              <span
+                className="inline-flex items-center gap-2 mb-7 px-4 py-2 rounded-full text-sm font-medium"
                 style={{
-                  background: "rgba(5,5,16,0.8)",
-                  backdropFilter: "blur(12px)",
-                  border: "1px solid rgba(99,102,241,0.2)",
-                  color: "#c7d2fe",
-                  top: i === 0 ? "0%" : i === 1 ? "40%" : "80%",
-                  right: i === 1 ? "-40%" : "auto",
-                  left: i === 0 ? "-20%" : i === 2 ? "-25%" : "auto",
-                }}
-                animate={{ y: [0, -8, 0] }}
-                transition={{
-                  duration: 3 + i,
-                  repeat: Infinity,
-                  ease: "easeInOut",
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(255,255,255,0.09)",
+                  color: "#bfdbfe",
                 }}
               >
-                {skill}
-              </motion.span>
+                <span className="w-2 h-2 rounded-full bg-cyan-300 animate-pulse" />
+                Available for Work | UI/UX Focused
+              </span>
+
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.02]">
+                Hi, I&apos;m <span className="gradient-text">Testimony.</span>
+              </h1>
+
+              <p className="text-2xl md:text-4xl font-semibold text-gray-100 mb-6 leading-tight">
+                I help businesses turn their online presence into a growth engine,
+                not just a website.
+              </p>
+
+              <p className="text-gray-400 text-base md:text-lg max-w-xl mb-9 leading-relaxed mx-auto lg:mx-0">
+                I design and build digital brand systems that clarify your offer,
+                improve the user experience, and guide visitors toward meaningful
+                business action.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Link
+                  to="/projects"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full font-semibold text-white text-sm transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_0_35px_rgba(30,64,255,0.36)]"
+                  style={{ background: "var(--gradient-primary)" }}
+                >
+                  View Work <FaArrowRight />
+                </Link>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full font-semibold text-sm transition-all duration-300 hover:-translate-y-[2px]"
+                  style={{
+                    border: "1px solid rgba(255,255,255,0.12)",
+                    color: "#e2e8f0",
+                    background: "rgba(255,255,255,0.04)",
+                  }}
+                >
+                  Contact
+                </Link>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              className="w-full max-w-md lg:max-w-none"
+            >
+              <div className="glass-card rounded-[2rem] p-4 md:p-5">
+                <div className="relative overflow-hidden rounded-[1.5rem] aspect-[4/5]">
+                  <img
+                    src={tess}
+                    alt="Testimony"
+                    className="h-full w-full object-cover"
+                    draggable="false"
+                  />
+                  <div className="absolute inset-0 hidden md:block bg-gradient-to-t from-[#05070d] via-transparent to-transparent" />
+                  <div className="absolute left-5 right-5 bottom-5 hidden md:block glass-card rounded-2xl p-5">
+                    <p className="text-sm text-cyan-200 mb-1">Digital Growth & Brand Strategist</p>
+                    <p className="text-xl font-semibold text-white leading-tight">
+                      Building systems that help brands become clearer, faster, and easier to trust.
+                    </p>
+                  </div>
+                </div>
+                <div className="md:hidden mt-4 rounded-2xl border border-white/8 bg-white/[0.04] p-4">
+                  <p className="text-sm text-cyan-200 mb-1">Digital Growth & Brand Strategist</p>
+                  <p className="text-lg font-semibold text-white leading-tight">
+                    Building systems that help brands become clearer, faster, and easier to trust.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative py-20">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
+          <div className="grid md:grid-cols-3 gap-5">
+            {valuePoints.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                viewport={{ once: true }}
+                className="glass-card rounded-2xl p-6"
+              >
+                <span className="text-cyan-300 text-xl">{item.icon}</span>
+                <h2 className="text-lg font-semibold text-white mt-4 mb-2">{item.title}</h2>
+                <p className="text-sm text-gray-400 leading-relaxed">{item.text}</p>
+              </motion.div>
             ))}
           </div>
-        </motion.div>
-      </div>
-    </section>
+        </div>
+      </section>
+
+      <section className="relative py-20">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
+          <div className="max-w-3xl mb-10">
+            <p className="text-cyan-200 text-sm font-semibold mb-3">Why work with me</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-white">
+              Strategy-led thinking, clean execution, and a focus on outcomes.
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {reasons.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: index * 0.06 }}
+                viewport={{ once: true }}
+                className="rounded-2xl border border-white/8 bg-white/[0.03] p-6"
+              >
+                <span className="text-cyan-300 text-xl">{item.icon}</span>
+                <h3 className="text-lg font-semibold text-white mt-4 mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-400 leading-relaxed">{item.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative py-20">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
+          <div className="glass-card rounded-3xl p-7 md:p-10">
+            <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-8 lg:gap-12 items-start">
+              <div>
+                <p className="text-cyan-200 text-sm font-semibold mb-3">Process preview</p>
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+                  A clear path from confusion to a working growth system.
+                </h2>
+                <p className="text-gray-400 leading-relaxed max-w-xl">
+                  The work is structured so every decision has a reason and every
+                  deliverable supports the business goal.
+                </p>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {processPreview.map((step, index) => (
+                  <div key={step} className="rounded-2xl border border-white/8 bg-white/[0.03] p-5">
+                    <p className="text-cyan-300 text-sm font-bold mb-3">0{index + 1}</p>
+                    <p className="text-white font-semibold leading-snug">{step}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative py-20 pb-28">
+        <div className="max-w-4xl mx-auto px-5 sm:px-6 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-5">
+            Let&apos;s build something that works.
+          </h2>
+          <p className="text-gray-400 text-lg leading-relaxed mb-8">
+            If your digital presence needs more clarity, trust, and conversion power,
+            the next move is a focused conversation.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-semibold text-white text-sm transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_0_35px_rgba(30,64,255,0.36)]"
+            style={{ background: "var(--gradient-primary)" }}
+          >
+            Start the Conversation <FaArrowRight />
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 };

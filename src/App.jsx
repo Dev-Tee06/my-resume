@@ -7,7 +7,7 @@ import { Home } from "./Components/sections/Home";
 import { About } from "./Components/sections/About";
 import Projects from "./Components/sections/Projects";
 import Footer from "./Components/sections/Footer";
-import Skills from "./Components/sections/Skills";
+import Services from "./Components/sections/Services";
 import { Contact } from "./Components/sections/Contact";
 import "./index.css";
 
@@ -27,11 +27,10 @@ function App() {
         <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
-        {/* Define Routes for different pages */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/skills" element={<Skills />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

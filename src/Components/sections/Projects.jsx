@@ -9,133 +9,88 @@ import xpress from "../../assets/xpress.png";
 import farm from "../../assets/farm.png";
 import mindshift from "../../assets/mindshift.png";
 import teenspray from "../../assets/teenspray.png";
-import oracle from "../../assets/oracle.png";
-import unique from "../../assets/unique.png";
-import mindheroes from "../../assets/mindheroes.png";
 
 const projects = [
   {
     id: 1,
     title: "TasteNest",
-    description:
-      "A modern food delivery platform focused on speed, usability, and responsive design.",
     image: food,
     github: "https://github.com/Dev-Tee06/taste-nest",
     live: "https://taste-nest-tau.vercel.app/",
-    tech: ["React", "Tailwind CSS", "Framer Motion"],
-    category: "E-Commerce",
+    category: "Commerce",
+    problem: "Food businesses need a smooth digital ordering experience that keeps users moving from browsing to checkout.",
+    solution: "Built a responsive food delivery interface with polished product browsing and conversion-focused UI states.",
+    outcome: "Improved the presentation of the ordering flow and created a stronger foundation for customer acquisition.",
   },
   {
     id: 2,
     title: "TEXIFY",
-    description:
-      "Creative digital agency website with smooth animations and strong branding.",
     image: agency,
     github: "https://github.com/Dev-Tee06/digital-agency",
     live: "https://texify-pearl.vercel.app",
-    tech: ["React", "Tailwind CSS", "Framer Motion"],
-    category: "Agency",
+    category: "Brand",
+    problem: "The agency needed a site that communicated creative credibility and made the offer feel premium.",
+    solution: "Delivered a modern agency website with strong hierarchy, smooth animations, and polished service presentation.",
+    outcome: "Created a sharper digital presence that supports higher-value client conversations.",
   },
   {
     id: 3,
     title: "TESS STORE",
-    description:
-      "A fully responsive e-commerce frontend with cart and checkout flow.",
     image: store,
     github: "https://github.com/Dev-Tee06/my-shop",
     live: "https://tess-shop.vercel.app",
-    tech: ["React", "Tailwind CSS", "Framer Motion"],
-    category: "E-Commerce",
+    category: "Commerce",
+    problem: "Online shoppers need a fast, simple way to browse products and understand the purchase path.",
+    solution: "Built a responsive e-commerce frontend with cart and checkout flow.",
+    outcome: "Turned a product catalog into a more usable buying experience across screen sizes.",
   },
   {
     id: 4,
     title: "Xpress",
-    description:
-      "Campus-focused delivery platform connecting businesses, customers, and riders.",
     image: xpress,
     github: "https://github.com/Dev-Tee06/Xpress",
     live: "https://xpress-five.vercel.app/",
-    tech: ["React", "Tailwind CSS", "Framer Motion"],
-    category: "Frontend",
+    category: "Operations",
+    problem: "Campus delivery needs coordination between businesses, customers, and riders without confusing the user.",
+    solution: "Created a delivery platform interface with business, customer, and rider-facing flows.",
+    outcome: "Reduced friction in the concept experience and made the delivery model easier to understand.",
   },
   {
     id: 5,
     title: "Farm-IQ",
-    description:
-      "Smart agriculture platform that helps farmers make better decisions and farm sustainably.",
     image: farm,
     github: "https://github.com/Dev-Tee06/Farm-IQ",
     live: "https://farm-iq-nine.vercel.app/",
-    tech: ["React", "Tailwind CSS", "Framer Motion"],
     category: "Tools",
+    problem: "Farmers need digital guidance that turns complex decisions into practical next steps.",
+    solution: "Built a smart agriculture interface that presents farming insights through clean, responsive screens.",
+    outcome: "Created a more accessible way for users to engage with agriculture technology.",
   },
   {
     id: 6,
     title: "Mindshift",
-    description:
-      "Platform designed to transform thinking, purpose, and lifestyle through practical wisdom.",
     image: mindshift,
     github: "https://github.com/Dev-Tee06/mindshift",
     live: "https://mindshift1-xi.vercel.app/",
-    tech: ["React", "Tailwind CSS", "Framer Motion"],
     category: "Growth",
+    problem: "Personal development content can feel vague unless the platform gives it clear structure and direction.",
+    solution: "Built a growth-focused platform with a clean content experience and persuasive presentation.",
+    outcome: "Helped the brand communicate transformation with more clarity and confidence.",
   },
   {
     id: 7,
-    title: "Teens-Pray",
-    description:
-      "Platform empowering teenagers to cultivate spiritual growth through structured prayer and devotionals.",
+    title: "Teenspray",
     image: teenspray,
     github: "https://github.com/Dev-Tee06/teens-pray",
     live: "https://teens-pray.vercel.app/",
-    tech: ["React", "Tailwind CSS", "Framer Motion"],
-    category: "Religious",
-  },
-  {
-    id: 8,
-    title: "Unique's Portfolio",
-    description:
-      "Sleek interactive portfolio showcasing skills, past work, and personal brand.",
-    image: unique,
-    github: "https://github.com/Dev-Tee06/unique-resume",
-    live: "https://unique-portfolio1.vercel.app/",
-    tech: ["React", "Tailwind CSS", "Framer Motion"],
-    category: "Portfolio",
-  },
-  {
-    id: 9,
-    title: "Oracle's Mind Portfolio",
-    description:
-      "Portfolio website for Oracle's Mind highlighting creativity, experience, and testimonials.",
-    image: oracle,
-    github: "https://github.com/Dev-Tee06/oracle-resume",
-    live: "https://oracle-resume.vercel.app/",
-    tech: ["React", "Tailwind CSS", "Framer Motion"],
-    category: "Portfolio",
-  },
-  {
-    id: 10,
-    title: "Mindheroes",
-    description:
-      "This is a platform that seeks to empower and educate the minds of the Young one's there by equipping them with the right mentality for Life.",
-    image: mindheroes,
-    github: "https://github.com/Dev-Tee06/mind-hero",
-    live: "https://mind-hero-sable.vercel.app/",
-    tech: ["Next.js", "Tailwind Css", "Framer Motion", "Firebase"],
-    category: "Growth",
+    category: "Community",
+    problem: "Teenagers need a simple, focused digital space that encourages consistency in prayer and devotion without feeling overwhelming.",
+    solution: "Built a responsive platform with structured spiritual content, clear navigation, and an experience designed for easy daily use.",
+    outcome: "Created a more organized digital touchpoint that supports youth engagement, consistency, and spiritual growth.",
   },
 ];
 
-const categories = [
-  "All",
-  "Frontend",
-  "Portfolio",
-  "Tools",
-  "Agency",
-  "E-Commerce",
-  "Religious",
-  "Growth",
-];
+const categories = ["All", "Brand", "Commerce", "Community", "Growth", "Operations", "Tools"];
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -144,23 +99,13 @@ export default function Projects() {
   const filteredProjects =
     activeCategory === "All"
       ? projects
-      : projects.filter((p) => p.category === activeCategory);
+      : projects.filter((project) => project.category === activeCategory);
 
   return (
-    <section
-      className="py-28 overflow-hidden relative"
-      style={{ background: "var(--bg-deep)" }}
-    >
-      {/* Background orbs */}
-      <div className="absolute top-20 right-0 w-80 h-80 rounded-full blur-[150px]"
-        style={{ background: "radial-gradient(circle, rgba(139,92,246,0.12), transparent)" }}
-      />
-      <div className="absolute bottom-20 left-0 w-80 h-80 rounded-full blur-[150px]"
-        style={{ background: "radial-gradient(circle, rgba(6,182,212,0.1), transparent)" }}
-      />
+    <section className="py-28 overflow-hidden relative" style={{ background: "var(--bg-deep)" }}>
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(6,182,212,0.07),transparent)]" />
 
       <div className="relative max-w-7xl mx-auto px-6">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -168,194 +113,120 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <span
-            className="inline-block mb-4 px-4 py-1.5 text-sm font-medium rounded-full"
-            style={{
-              background: "rgba(99,102,241,0.1)",
-              border: "1px solid rgba(99,102,241,0.2)",
-              color: "#818cf8",
-            }}
-          >
-            Portfolio
+          <span className="inline-block mb-4 px-4 py-1.5 text-sm font-medium rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-200">
+            Projects
           </span>
-          <h2
-            className="text-3xl md:text-5xl font-bold text-white"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-          >
-            My <span className="gradient-text">Projects</span>
-          </h2>
+          <h1 className="text-3xl md:text-5xl font-bold text-white">
+            Case studies focused on <span className="gradient-text">business impact.</span>
+          </h1>
+          <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
+            Each project is framed by the problem it solves, the solution delivered,
+            and the outcome it supports.
+          </p>
         </motion.div>
 
-        {/* Filters */}
         <div className="flex justify-center flex-wrap gap-3 mb-12">
-          {categories.map((cat) => (
+          {categories.map((category) => (
             <motion.button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
+              key={category}
+              onClick={() => setActiveCategory(category)}
               className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
               style={{
                 background:
-                  activeCategory === cat
-                    ? "linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4)"
+                  activeCategory === category
+                    ? "var(--gradient-primary)"
                     : "rgba(255,255,255,0.04)",
-                color: activeCategory === cat ? "#fff" : "#9ca3af",
-                border:
-                  activeCategory === cat
-                    ? "none"
-                    : "1px solid rgba(255,255,255,0.06)",
-                boxShadow:
-                  activeCategory === cat
-                    ? "0 4px 20px rgba(99,102,241,0.25)"
-                    : "none",
+                color: activeCategory === category ? "#fff" : "#9ca3af",
+                border: activeCategory === category ? "none" : "1px solid rgba(255,255,255,0.06)",
               }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.96 }}
             >
-              {cat}
+              {category}
             </motion.button>
           ))}
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredProjects.map((project, i) => (
-            <motion.div
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {filteredProjects.map((project, index) => (
+            <motion.article
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
               whileHover={{ y: -6 }}
+              viewport={{ once: true }}
               onClick={() => setSelectedProject(project)}
-              className="cursor-pointer group glass-card rounded-2xl overflow-hidden transition-all duration-400"
-              style={{ borderColor: "rgba(255,255,255,0.06)" }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(99,102,241,0.3)";
-                e.currentTarget.style.boxShadow = "0 8px 40px rgba(99,102,241,0.15)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
-                e.currentTarget.style.boxShadow = "var(--glass-glow)";
-              }}
+              className="cursor-pointer group glass-card rounded-2xl overflow-hidden"
             >
-              {/* Image with gradient overlay */}
               <div className="relative h-48 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div
-                  className="absolute inset-0 opacity-50 group-hover:opacity-30 transition-opacity duration-300"
-                  style={{
-                    background:
-                      "linear-gradient(180deg, transparent 40%, rgba(5,5,16,0.95) 100%)",
-                  }}
-                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#05070d] via-transparent to-transparent" />
+                <span className="absolute left-4 bottom-4 rounded-full bg-cyan-300/10 border border-cyan-300/20 px-3 py-1 text-xs text-cyan-100">
+                  {project.category}
+                </span>
               </div>
-
-              {/* Content */}
-              <div className="p-5">
-                <h3
-                  className="font-semibold text-gray-100 text-lg mb-2"
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                >
-                  {project.title}
-                </h3>
-                <p className="text-sm text-gray-400 mb-4 leading-relaxed line-clamp-2">
-                  {project.description}
-                </p>
-
-                {/* Tech tags */}
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((t, idx) => (
-                    <span
-                      key={idx}
-                      className="px-2.5 py-1 rounded-full text-[11px] font-medium"
-                      style={{
-                        background: "rgba(99,102,241,0.1)",
-                        border: "1px solid rgba(99,102,241,0.15)",
-                        color: "#a5b4fc",
-                      }}
-                    >
-                      {t}
-                    </span>
-                  ))}
+              <div className="p-6">
+                <h2 className="text-xl font-semibold text-white mb-3">{project.title}</h2>
+                <p className="text-sm font-semibold text-cyan-200 mb-2">Problem</p>
+                <p className="text-gray-400 text-sm leading-relaxed mb-4">{project.problem}</p>
+                <p className="text-sm font-semibold text-cyan-200 mb-2">Solution</p>
+                <p className="text-gray-400 text-sm leading-relaxed mb-5">{project.solution}</p>
+                <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
+                  <p className="text-sm font-semibold text-white mb-1">Outcome</p>
+                  <p className="text-sm text-gray-400 leading-relaxed">{project.outcome}</p>
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>
 
-      {/* Modal */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center px-4"
+            className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedProject(null)}
-            style={{
-              background: "rgba(5,5,16,0.85)",
-              backdropFilter: "blur(12px)",
-            }}
+            style={{ background: "rgba(5,7,13,0.88)", backdropFilter: "blur(12px)" }}
           >
             <motion.div
-              onClick={(e) => e.stopPropagation()}
-              className="glass-card rounded-3xl max-w-lg w-full overflow-hidden"
-              style={{
-                borderColor: "rgba(99,102,241,0.15)",
-                boxShadow: "0 25px 80px rgba(99,102,241,0.15)",
-              }}
-              initial={{ scale: 0.9, y: 20 }}
+              onClick={(event) => event.stopPropagation()}
+              className="glass-card rounded-3xl max-w-2xl w-full overflow-hidden max-h-[90vh] overflow-y-auto"
+              initial={{ scale: 0.94, y: 18 }}
               animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 20 }}
+              exit={{ scale: 0.94, y: 18 }}
             >
               <img
                 src={selectedProject.image}
                 alt={selectedProject.title}
-                className="w-full h-48 object-cover"
+                className="w-full h-56 object-cover"
               />
-              <div className="p-6">
-                <h3
-                  className="text-xl font-bold text-white mb-2"
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                >
-                  {selectedProject.title}
-                </h3>
-                <p className="text-gray-400 text-sm mb-5 leading-relaxed">
-                  {selectedProject.description}
-                </p>
+              <div className="p-6 md:p-8">
+                <p className="text-sm text-cyan-200 mb-2">{selectedProject.category}</p>
+                <h2 className="text-2xl font-bold text-white mb-6">{selectedProject.title}</h2>
 
-                {/* Tech */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {selectedProject.tech.map((t, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 rounded-full text-xs font-medium"
-                      style={{
-                        background: "rgba(99,102,241,0.1)",
-                        border: "1px solid rgba(99,102,241,0.15)",
-                        color: "#a5b4fc",
-                      }}
-                    >
-                      {t}
-                    </span>
+                <div className="grid gap-4">
+                  {["problem", "solution", "outcome"].map((key) => (
+                    <div key={key} className="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
+                      <h3 className="capitalize text-white font-semibold mb-2">{key}</h3>
+                      <p className="text-gray-400 leading-relaxed">{selectedProject[key]}</p>
+                    </div>
                   ))}
                 </div>
 
-                {/* Actions */}
-                <div className="flex gap-3">
+                <div className="flex flex-wrap gap-3 mt-7">
                   <a
                     href={selectedProject.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-white transition-all duration-300 hover:-translate-y-[1px]"
-                    style={{
-                      background: "rgba(255,255,255,0.06)",
-                      border: "1px solid rgba(255,255,255,0.1)",
-                    }}
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-white transition-all duration-300 hover:-translate-y-[1px] border border-white/10 bg-white/[0.06]"
                   >
                     <FaGithub /> Code
                   </a>
@@ -363,10 +234,8 @@ export default function Projects() {
                     href={selectedProject.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-white transition-all duration-300 hover:-translate-y-[1px] hover:shadow-[0_0_25px_rgba(99,102,241,0.3)]"
-                    style={{
-                      background: "linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4)",
-                    }}
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-white transition-all duration-300 hover:-translate-y-[1px]"
+                    style={{ background: "var(--gradient-primary)" }}
                   >
                     <FaExternalLinkAlt /> Live Demo
                   </a>

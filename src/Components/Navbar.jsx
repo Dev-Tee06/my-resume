@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export const Navbar = ({ menuOpen, setMenuOpen }) => {
   useEffect(() => {
@@ -7,7 +8,7 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
   }, [menuOpen]);
 
   const navItemClass =
-    "relative text-gray-400 font-medium text-sm tracking-wide cursor-pointer transition-all duration-300 hover:text-white after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:rounded-full after:bg-gradient-to-r after:from-indigo-500 after:to-cyan-400 after:transition-all after:duration-300 hover:after:w-full";
+    "relative text-gray-400 font-medium text-sm cursor-pointer transition-all duration-300 hover:text-white after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:rounded-full after:bg-gradient-to-r after:from-blue-600 after:to-cyan-400 after:transition-all after:duration-300 hover:after:w-full";
 
   return (
     <nav
@@ -24,7 +25,7 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
           {/* Logo */}
           <Link
             to="/"
-            className="cursor-pointer text-lg font-bold tracking-wide"
+            className="cursor-pointer text-lg font-bold"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
             <span className="gradient-text text-xl font-bold">
@@ -38,7 +39,7 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label="Toggle Menu"
           >
-            {menuOpen ? "✕" : "☰"}
+            {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
 
           {/* Desktop Menu */}
@@ -51,8 +52,8 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
               About
             </Link>
 
-            <Link to="/skills" className={navItemClass}>
-              Skills
+            <Link to="/services" className={navItemClass}>
+              Services
             </Link>
 
             <Link to="/projects" className={navItemClass}>
@@ -61,9 +62,9 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
 
             <Link
               to="/contact"
-              className="ml-2 px-6 py-2 rounded-full text-sm font-semibold text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(99,102,241,0.4)] hover:-translate-y-[1px]"
+              className="ml-2 px-6 py-2 rounded-full text-sm font-semibold text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(30,64,255,0.4)] hover:-translate-y-[1px]"
               style={{
-                background: "linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4)",
+                background: "var(--gradient-primary)",
               }}
             >
               Get in Touch
