@@ -9,6 +9,9 @@ import xpress from "../../assets/xpress.png";
 import farm from "../../assets/farm.png";
 import mindshift from "../../assets/mindshift.png";
 import teenspray from "../../assets/teenspray.png";
+import oracle from "../../assets/oracle.png";
+import unique from "../../assets/unique.png";
+import Eunice from "../../assets/Eunice.png";
 
 const projects = [
   {
@@ -18,9 +21,12 @@ const projects = [
     github: "https://github.com/Dev-Tee06/taste-nest",
     live: "https://taste-nest-tau.vercel.app/",
     category: "Commerce",
-    problem: "Food businesses need a smooth digital ordering experience that keeps users moving from browsing to checkout.",
-    solution: "Built a responsive food delivery interface with polished product browsing and conversion-focused UI states.",
-    outcome: "Improved the presentation of the ordering flow and created a stronger foundation for customer acquisition.",
+    problem:
+      "Food businesses need a smooth digital ordering experience that keeps users moving from browsing to checkout.",
+    solution:
+      "Built a responsive food delivery interface with polished product browsing and conversion-focused UI states.",
+    outcome:
+      "Improved the presentation of the ordering flow and created a stronger foundation for customer acquisition.",
   },
   {
     id: 2,
@@ -29,9 +35,12 @@ const projects = [
     github: "https://github.com/Dev-Tee06/digital-agency",
     live: "https://texify-pearl.vercel.app",
     category: "Brand",
-    problem: "The agency needed a site that communicated creative credibility and made the offer feel premium.",
-    solution: "Delivered a modern agency website with strong hierarchy, smooth animations, and polished service presentation.",
-    outcome: "Created a sharper digital presence that supports higher-value client conversations.",
+    problem:
+      "The agency needed a site that communicated creative credibility and made the offer feel premium.",
+    solution:
+      "Delivered a modern agency website with strong hierarchy, smooth animations, and polished service presentation.",
+    outcome:
+      "Created a sharper digital presence that supports higher-value client conversations.",
   },
   {
     id: 3,
@@ -40,9 +49,12 @@ const projects = [
     github: "https://github.com/Dev-Tee06/my-shop",
     live: "https://tess-shop.vercel.app",
     category: "Commerce",
-    problem: "Online shoppers need a fast, simple way to browse products and understand the purchase path.",
-    solution: "Built a responsive e-commerce frontend with cart and checkout flow.",
-    outcome: "Turned a product catalog into a more usable buying experience across screen sizes.",
+    problem:
+      "Online shoppers need a fast, simple way to browse products and understand the purchase path.",
+    solution:
+      "Built a responsive e-commerce frontend with cart and checkout flow.",
+    outcome:
+      "Turned a product catalog into a more usable buying experience across screen sizes.",
   },
   {
     id: 4,
@@ -51,9 +63,12 @@ const projects = [
     github: "https://github.com/Dev-Tee06/Xpress",
     live: "https://xpress-five.vercel.app/",
     category: "Operations",
-    problem: "Campus delivery needs coordination between businesses, customers, and riders without confusing the user.",
-    solution: "Created a delivery platform interface with business, customer, and rider-facing flows.",
-    outcome: "Reduced friction in the concept experience and made the delivery model easier to understand.",
+    problem:
+      "Campus delivery needs coordination between businesses, customers, and riders without confusing the user.",
+    solution:
+      "Created a delivery platform interface with business, customer, and rider-facing flows.",
+    outcome:
+      "Reduced friction in the concept experience and made the delivery model easier to understand.",
   },
   {
     id: 5,
@@ -62,9 +77,12 @@ const projects = [
     github: "https://github.com/Dev-Tee06/Farm-IQ",
     live: "https://farm-iq-nine.vercel.app/",
     category: "Tools",
-    problem: "Farmers need digital guidance that turns complex decisions into practical next steps.",
-    solution: "Built a smart agriculture interface that presents farming insights through clean, responsive screens.",
-    outcome: "Created a more accessible way for users to engage with agriculture technology.",
+    problem:
+      "Farmers need digital guidance that turns complex decisions into practical next steps.",
+    solution:
+      "Built a smart agriculture interface that presents farming insights through clean, responsive screens.",
+    outcome:
+      "Created a more accessible way for users to engage with agriculture technology.",
   },
   {
     id: 6,
@@ -73,9 +91,12 @@ const projects = [
     github: "https://github.com/Dev-Tee06/mindshift",
     live: "https://mindshift1-xi.vercel.app/",
     category: "Growth",
-    problem: "Personal development content can feel vague unless the platform gives it clear structure and direction.",
-    solution: "Built a growth-focused platform with a clean content experience and persuasive presentation.",
-    outcome: "Helped the brand communicate transformation with more clarity and confidence.",
+    problem:
+      "Personal development content can feel vague unless the platform gives it clear structure and direction.",
+    solution:
+      "Built a growth-focused platform with a clean content experience and persuasive presentation.",
+    outcome:
+      "Helped the brand communicate transformation with more clarity and confidence.",
   },
   {
     id: 7,
@@ -84,13 +105,68 @@ const projects = [
     github: "https://github.com/Dev-Tee06/teens-pray",
     live: "https://teens-pray.vercel.app/",
     category: "Community",
-    problem: "Teenagers need a simple, focused digital space that encourages consistency in prayer and devotion without feeling overwhelming.",
-    solution: "Built a responsive platform with structured spiritual content, clear navigation, and an experience designed for easy daily use.",
-    outcome: "Created a more organized digital touchpoint that supports youth engagement, consistency, and spiritual growth.",
+    problem:
+      "Teenagers need a simple, focused digital space that encourages consistency in prayer and devotion without feeling overwhelming.",
+    solution:
+      "Built a responsive platform with structured spiritual content, clear navigation, and an experience designed for easy daily use.",
+    outcome:
+      "Created a more organized digital touchpoint that supports youth engagement, consistency, and spiritual growth.",
+  },
+  {
+    id: 8,
+    title: "Eunice Portfolio",
+    image: Eunice,
+    github: "#",
+    live: "https://the-eunice-portfolio.vercel.app/",
+    category: "Portfolio",
+    problem:
+      "A personal brand needs a clean and professional online presence that presents skills, projects, and contact details clearly.",
+    solution:
+      "Built a responsive portfolio website with organized sections, smooth navigation, and a polished interface tailored for personal presentation.",
+    outcome:
+      "Delivered a stronger digital presence that makes it easier to showcase work, communicate value, and connect with opportunities.",
+  },
+  {
+    id: 9,
+    title: "Oracle Resume",
+    image: oracle,
+    github: "#",
+    live: "https://oracle-resume.vercel.app/",
+    category: "Resume",
+    problem:
+      "Job seekers need a focused resume website that makes their experience, skills, and professional value easy to understand.",
+    solution:
+      "Created a responsive resume platform with clear content structure, polished visuals, and direct access to key career information.",
+    outcome:
+      "Built a more professional online resume experience that supports applications, networking, and personal branding.",
+  },
+  {
+    id: 10,
+    title: "Unique Resume",
+    image: unique,
+    github: "#",
+    live: "https://unique-portfolio1.vercel.app/",
+    category: "Resume",
+    problem:
+      "A resume site should help visitors quickly understand a candidate's strengths without making the experience feel cluttered.",
+    solution:
+      "Designed a responsive resume website with simple navigation, organized profile sections, and a clean presentation style.",
+    outcome:
+      "Created a polished personal career page that improves visibility and makes professional details easier to share.",
   },
 ];
 
-const categories = ["All", "Brand", "Commerce", "Community", "Growth", "Operations", "Tools"];
+const categories = [
+  "All",
+  "Brand",
+  "Commerce",
+  "Community",
+  "Growth",
+  "Operations",
+  "Resume",
+  "Portfoilo",
+  "Tools",
+];
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -102,7 +178,10 @@ export default function Projects() {
       : projects.filter((project) => project.category === activeCategory);
 
   return (
-    <section className="py-28 overflow-hidden relative" style={{ background: "var(--bg-deep)" }}>
+    <section
+      className="py-28 overflow-hidden relative"
+      style={{ background: "var(--bg-deep)" }}
+    >
       <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(6,182,212,0.07),transparent)]" />
 
       <div className="relative max-w-7xl mx-auto px-6">
@@ -117,11 +196,12 @@ export default function Projects() {
             Projects
           </span>
           <h1 className="text-3xl md:text-5xl font-bold text-white">
-            Case studies focused on <span className="gradient-text">business impact.</span>
+            Case studies focused on{" "}
+            <span className="gradient-text">business impact.</span>
           </h1>
           <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
-            Each project is framed by the problem it solves, the solution delivered,
-            and the outcome it supports.
+            Each project is framed by the problem it solves, the solution
+            delivered, and the outcome it supports.
           </p>
         </motion.div>
 
@@ -137,7 +217,10 @@ export default function Projects() {
                     ? "var(--gradient-primary)"
                     : "rgba(255,255,255,0.04)",
                 color: activeCategory === category ? "#fff" : "#9ca3af",
-                border: activeCategory === category ? "none" : "1px solid rgba(255,255,255,0.06)",
+                border:
+                  activeCategory === category
+                    ? "none"
+                    : "1px solid rgba(255,255,255,0.06)",
               }}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.96 }}
@@ -171,14 +254,28 @@ export default function Projects() {
                 </span>
               </div>
               <div className="p-6">
-                <h2 className="text-xl font-semibold text-white mb-3">{project.title}</h2>
-                <p className="text-sm font-semibold text-cyan-200 mb-2">Problem</p>
-                <p className="text-gray-400 text-sm leading-relaxed mb-4">{project.problem}</p>
-                <p className="text-sm font-semibold text-cyan-200 mb-2">Solution</p>
-                <p className="text-gray-400 text-sm leading-relaxed mb-5">{project.solution}</p>
+                <h2 className="text-xl font-semibold text-white mb-3">
+                  {project.title}
+                </h2>
+                <p className="text-sm font-semibold text-cyan-200 mb-2">
+                  Problem
+                </p>
+                <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                  {project.problem}
+                </p>
+                <p className="text-sm font-semibold text-cyan-200 mb-2">
+                  Solution
+                </p>
+                <p className="text-gray-400 text-sm leading-relaxed mb-5">
+                  {project.solution}
+                </p>
                 <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
-                  <p className="text-sm font-semibold text-white mb-1">Outcome</p>
-                  <p className="text-sm text-gray-400 leading-relaxed">{project.outcome}</p>
+                  <p className="text-sm font-semibold text-white mb-1">
+                    Outcome
+                  </p>
+                  <p className="text-sm text-gray-400 leading-relaxed">
+                    {project.outcome}
+                  </p>
                 </div>
               </div>
             </motion.article>
@@ -194,7 +291,10 @@ export default function Projects() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedProject(null)}
-            style={{ background: "rgba(5,7,13,0.88)", backdropFilter: "blur(12px)" }}
+            style={{
+              background: "rgba(5,7,13,0.88)",
+              backdropFilter: "blur(12px)",
+            }}
           >
             <motion.div
               onClick={(event) => event.stopPropagation()}
@@ -209,14 +309,25 @@ export default function Projects() {
                 className="w-full h-56 object-cover"
               />
               <div className="p-6 md:p-8">
-                <p className="text-sm text-cyan-200 mb-2">{selectedProject.category}</p>
-                <h2 className="text-2xl font-bold text-white mb-6">{selectedProject.title}</h2>
+                <p className="text-sm text-cyan-200 mb-2">
+                  {selectedProject.category}
+                </p>
+                <h2 className="text-2xl font-bold text-white mb-6">
+                  {selectedProject.title}
+                </h2>
 
                 <div className="grid gap-4">
                   {["problem", "solution", "outcome"].map((key) => (
-                    <div key={key} className="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
-                      <h3 className="capitalize text-white font-semibold mb-2">{key}</h3>
-                      <p className="text-gray-400 leading-relaxed">{selectedProject[key]}</p>
+                    <div
+                      key={key}
+                      className="rounded-2xl border border-white/8 bg-white/[0.03] p-4"
+                    >
+                      <h3 className="capitalize text-white font-semibold mb-2">
+                        {key}
+                      </h3>
+                      <p className="text-gray-400 leading-relaxed">
+                        {selectedProject[key]}
+                      </p>
                     </div>
                   ))}
                 </div>
