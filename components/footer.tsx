@@ -12,7 +12,6 @@ const socialLinks = [
   { href: "https://github.com/Dev-Tee06", label: "GitHub", icon: Github },
   { href: "mailto:dev.tee01@gmail.com", label: "Email", icon: Mail },
   { href: "https://www.linkedin.com/in/testimony-tosin-01206925b", label: "LinkedIn", icon: Linkedin },
-  { href: "https://twitter.com", label: "Twitter", icon: Twitter },
 ];
 
 export function Footer() {
@@ -77,9 +76,6 @@ export function Footer() {
         <div className="mt-12 pt-6 border-t border-[var(--color-border)] flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <p className="text-xs text-[var(--color-text-muted)]">
             &copy; {new Date().getFullYear()} DEV-TEE. All rights reserved.
-          </p>
-          <p className="text-xs text-[var(--color-text-muted)]">
-            Built with Next.js, TypeScript & Tailwind CSS
           </p>
         </div>
       </div>
