@@ -9,7 +9,7 @@ export function SkillsSection() {
     <section className="section" id="skills">
       <div className="container">
         <FadeIn>
-          <span className="eyebrow">Capabilities</span>
+          <span className="eyebrow">Expertise</span>
           <h2 className="heading-xl mb-4 max-w-3xl">
             Technical proficiency and strategic skills.
           </h2>

@@ -20,12 +20,12 @@ export const projects: Project[] = [
     image: "/assets/teenspray.png",
     github: "https://github.com/Dev-Tee06/teenspray",
     live: "https://teenspray.org",
-    category: "Brand",
-    problem: "Needed a clean, modern digital presence to communicate value effectively.",
+    category: "Religion",
+    problem: "A religious Organisation Needed a clean, modern digital presence to communicate value effectively.",
     strategy: "Focus on clear messaging, high-quality visuals, and a responsive layout.",
     solution: "Developed a premium website with seamless navigation and fast performance.",
     result: "Improved online credibility and user engagement.",
-    stack: ["React", "Tailwind CSS", "Next.js"],
+    stack: ["React", "Tailwind CSS",],
   },
   {
     id: 3,
@@ -92,6 +92,8 @@ export const projects: Project[] = [
     result: "Helped the brand communicate transformation with more clarity.",
     stack: ["React", "Tailwind CSS", "Vercel"],
   },
+
+
 ];
 
 export const featuredProjects = projects.slice(0, 3);

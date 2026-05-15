@@ -17,7 +17,7 @@ export function ContactSection() {
                 Start with the business problem.
               </h2>
               <p className="text-body mb-8">
-                Share the goal, service need, and current challenge. The
+                Share the goal, service needed, and current challenge. The
                 automation system sends a confirmation and notifies DEV-TEE
                 instantly.
               </p>

@@ -18,7 +18,7 @@ export function HeroSection() {
 
             <FadeIn direction="up" delay={0.15} duration={0.8}>
               <h1 className="heading-display mb-6">
-                DEV-TEE builds{" "}
+                Building{" "}
                 <span className="gradient-text">digital systems</span> for
                 measurable growth.
               </h1>
@@ -27,7 +27,7 @@ export function HeroSection() {
             <FadeIn direction="up" delay={0.3} duration={0.8}>
               <p className="text-body max-w-2xl mb-10">
                 Premium full-stack development, UX strategy, SEO, automation, and
-                brand positioning — for businesses that need more than a website.
+                brand positioning for businesses that need more than a website.
               </p>
             </FadeIn>
 
