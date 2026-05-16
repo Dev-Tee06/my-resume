@@ -6,7 +6,7 @@ export const projects: Project[] = [
     title: "TasteNest",
     image: "/assets/food.png",
     github: "https://github.com/Dev-Tee06/taste-nest",
-    live: "https://taste-nest-tau.vercel.app/",
+    live: "https://the-taste-nest.vercel.app/",
     category: "Commerce",
     problem: "Food businesses need a smooth digital ordering experience.",
     strategy: "Prioritize product clarity, category scanning, and fewer checkout decisions.",
