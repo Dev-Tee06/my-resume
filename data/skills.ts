@@ -18,7 +18,6 @@ export const skillCategories: SkillCategory[] = [
     category: "Backend",
     skills: [
       { name: "Node.js" },
-      { name: "REST APIs" },
       { name: "Next.js API Routes" },
       { name: "Nodemailer" },
     ],
@@ -28,7 +27,6 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "Firebase" },
       { name: "Supabase" },
-      { name: "PostgreSQL" },
     ],
   },
   {
@@ -37,8 +35,6 @@ export const skillCategories: SkillCategory[] = [
       { name: "Git & GitHub" },
       { name: "Vercel" },
       { name: "VS Code" },
-      { name: "Figma" },
-      { name: "Postman" },
     ],
   },
   {
