@@ -38,7 +38,7 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    category: "Strategy",
+    category: "Brand",
     skills: [
       { name: "SEO Optimization" },
       { name: "UX Strategy" },

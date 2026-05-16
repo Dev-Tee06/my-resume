@@ -21,11 +21,13 @@ export function SkillsSection() {
         <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {skillCategories.map((category) => (
             <StaggerItem key={category.category}>
-              <div className="card card-pad h-full flex flex-col group">
+              <div className={`card h-full flex flex-col group ${
+                category.category === "Frontend" ? "p-6" : "p-6 pb-4 justify-center"
+              }`}>
                 <h3 className="heading-md !text-lg mb-3 group-hover:text-[var(--color-accent-blue)] transition-colors duration-300">
                   {category.category}
                 </h3>
-                <ul className="space-y-2 mt-auto">
+                <ul className="space-y-2">
                   {category.skills.map((skill) => (
                     <li key={skill.name} className="flex items-center gap-2 text-body-sm">
                       <span className="w-1.5 h-1.5 rounded-full bg-[rgba(99,102,241,0.4)] group-hover:bg-[var(--color-accent-blue)] transition-colors duration-300 flex-shrink-0" />
